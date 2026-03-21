@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference — Bharat AI Innovation 2026</title>
+    <meta name="description" content="10+ tracks covering GenAI, AI governance, industry sectors, ethics and skills. Bharat AI Innovation conference, Mumbai June 2–3 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── Conference Extra Styles ── */
+
+        /* Track Pills */
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1.5rem;
+        }
+        .track-card {
+            background: white;
+            border: 1px solid var(--light);
+            border-radius: var(--r-xl);
+            padding: 1.75rem;
+            transition: var(--t-med);
+            position: relative;
+            overflow: hidden;
+        }
+        .track-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: var(--grad-saffron);
+            border-radius: 4px 0 0 4px;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform var(--t-med);
+        }
+        .track-card:hover {
+            border-color: rgba(255,107,0,0.15);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        .track-card:hover::before { transform: scaleY(1); }
+        .track-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .track-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.5rem; }
+        .track-card p  { font-size: 0.88rem; color: var(--dark-grey); margin-bottom: 1rem; line-height: 1.6; }
+        .track-tag {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,107,0,0.08);
+            color: var(--saffron);
+            border-radius: var(--r-full);
+            padding: 0.2rem 0.7rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        /* Schedule Tabs */
+        .schedule-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: var(--off-white);
+            padding: 0.4rem;
+            border-radius: var(--r-full);
+            width: fit-content;
+        }
+        .schedule-tab {
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--r-full);
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--dark-grey);
+            cursor: pointer;
+            transition: var(--t-fast);
+            border: none;
+            background: transparent;
+        }
+        .schedule-tab.active {
+            background: white;
+            color: var(--charcoal);
+            box-shadow: var(--shadow-sm);
+        }
+        .schedule-tab:hover:not(.active) { color: var(--saffron); }
+
+        .schedule-panel { display: none; }
+        .schedule-panel.active { display: block; }
+
+        .schedule-list { display: flex; flex-direction: column; gap: 1rem; }
+        .schedule-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            background: white;
+            border: 1px solid var(--light);
+            border-radius: var(--r-lg);
+            padding: 1.25rem 1.5rem;
+            transition: var(--t-med);
+        }
+        .schedule-item:hover {
+            border-color: rgba(255,107,0,0.2);
+            box-shadow: var(--shadow-sm);
+        }
+        .schedule-time {
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--saffron);
+        }
+        .schedule-info h4 { font-size: 1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.2rem; }
+        .schedule-info p  { font-size: 0.84rem; color: var(--dark-grey); margin: 0; }
+        .schedule-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--r-full);
+            font-size: 0.72rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .badge-keynote  { background: rgba(255,107,0,0.1);  color: var(--saffron); }
+        .badge-panel    { background: rgba(41,121,255,0.1); color: var(--electric); }
+        .badge-workshop { background: rgba(0,137,123,0.1);  color: var(--emerald); }
+        .badge-break    { background: rgba(74,82,128,0.1);  color: var(--dark-grey); }
+        .badge-awards   { background: rgba(255,179,0,0.12); color: var(--gold); }
+
+        /* Speaker Cards */
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 1.5rem;
+        }
+        .speaker-card {
+            background: white;
+            border: 1px solid var(--light);
+            border-radius: var(--r-xl);
+            padding: 1.75rem 1.5rem;
+            text-align: center;
+            transition: var(--t-med);
+            position: relative;
+            overflow: hidden;
+        }
+        .speaker-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--grad-saffron);
+            opacity: 0;
+            transition: var(--t-med);
+        }
+        .speaker-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(255,107,0,0.2);
+        }
+        .speaker-card:hover::after { opacity: 0.04; }
+        .speaker-avatar {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: var(--grad-saffron);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow-saffron);
+            transition: var(--t-med);
+            position: relative;
+            z-index: 1;
+        }
+        .speaker-card:hover .speaker-avatar {
+            transform: scale(1.08);
+            box-shadow: 0 12px 40px rgba(255,107,0,0.5);
+        }
+        .speaker-card h4 { font-size: 1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.2rem; position: relative; z-index: 1; }
+        .speaker-role    { font-size: 0.8rem; color: var(--saffron); font-weight: 600; margin-bottom: 0.15rem; position: relative; z-index: 1; }
+        .speaker-org     { font-size: 0.78rem; color: var(--dark-grey); position: relative; z-index: 1; }
+
+        /* Conference Format Cards */
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 1.5rem;
+        }
+        .format-card {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+            background: white;
+            border: 1px solid var(--light);
+            border-radius: var(--r-xl);
+            padding: 1.75rem;
+            transition: var(--t-med);
+        }
+        .format-card:hover {
+            border-color: rgba(255,107,0,0.2);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .format-icon {
+            width: 52px; height: 52px;
+            border-radius: var(--r-lg);
+            background: var(--grad-saffron);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-saffron);
+        }
+        .format-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.4rem; }
+        .format-card p  { font-size: 0.88rem; color: var(--dark-grey); margin: 0; line-height: 1.65; }
+
+        /* Stat highlights bar */
+        .conf-stat-bar {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 0;
+            background: var(--grad-hero);
+            border-radius: var(--r-2xl);
+            overflow: hidden;
+        }
+        .conf-stat-item {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.08);
+            transition: var(--t-med);
+        }
+        .conf-stat-item:last-child { border-right: none; }
+        .conf-stat-item:hover { background: rgba(255,255,255,0.06); }
+        .conf-stat-num {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--grad-sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.35rem;
+        }
+        .conf-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+        @media (max-width: 1024px) {
+            .speakers-grid { grid-template-columns: repeat(3,1fr); }
+        }
+        @media (max-width: 768px) {
+            .tracks-grid    { grid-template-columns: repeat(2,1fr); }
+            .speakers-grid  { grid-template-columns: repeat(2,1fr); }
+            .format-grid    { grid-template-columns: 1fr; }
+            .conf-stat-bar  { grid-template-columns: repeat(2,1fr); }
+            .schedule-item  { grid-template-columns: 1fr; gap: 0.5rem; }
+            .schedule-tabs  { flex-wrap: wrap; width: 100%; }
+        }
+        @media (max-width: 480px) {
+            .tracks-grid  { grid-template-columns: 1fr; }
+            .speakers-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar dark-nav" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:44px;width:auto;border-radius:12px;padding:6px;background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="conference.html" class="nav-link active">Conference</a>
+                <a href="exhibition.html" class="nav-link">Exhibition</a>
+                <a href="startup-pitch.html" class="nav-link">Startup Pitch</a>
+                <a href="training-workshop.html" class="nav-link">Workshops</a>
+                <a href="partner.html" class="nav-link">Partner</a>
+                <a href="accommodation.html" class="nav-link">Accommodation</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="register.html" class="nav-cta">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="page-header-orb"></div>
+        <div class="page-header-content container">
+            <span class="page-header-eyebrow"><i class="fas fa-microphone-alt"></i> The Conference</span>
+            <h1>AI Innovation<br>Conference 2026</h1>
+            <p>60+ Speakers &nbsp;·&nbsp; 10+ Tracks &nbsp;·&nbsp; 2 Days of Cutting-Edge Insights</p>
+        </div>
+    </section>
+
+    <!-- STAT BAR -->
+    <div style="padding:4rem 0;background:var(--off-white);">
+        <div class="container">
+            <div class="conf-stat-bar reveal">
+                <div class="conf-stat-item">
+                    <div class="conf-stat-num" data-count="60" data-suffix="+">60+</div>
+                    <div class="conf-stat-label">Expert Speakers</div>
+                </div>
+                <div class="conf-stat-item">
+                    <div class="conf-stat-num" data-count="10" data-suffix="+">10+</div>
+                    <div class="conf-stat-label">Conference Tracks</div>
+                </div>
+                <div class="conf-stat-item">
+                    <div class="conf-stat-num" data-count="20" data-suffix="+">20+</div>
+                    <div class="conf-stat-label">Workshops</div>
+                </div>
+                <div class="conf-stat-item">
+                    <div class="conf-stat-num" data-count="2" data-suffix=" Days">2 Days</div>
+                    <div class="conf-stat-label">Packed Agenda</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section class="section-pad" style="background:white;" id="overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="reveal">
+                    <span class="section-eyebrow"><i class="fas fa-info-circle"></i> Overview</span>
+                    <h2 class="section-title" style="text-align:left;">Conference <span class="accent">Overview</span></h2>
+                    <p class="overview-text">
+                        Bharat AI Innovation Conference 2026 brings together India's leading AI researchers,
+                        industry experts, policymakers, and innovators for two days of intensive learning,
+                        networking, and collaboration. With expert speakers across 10+ focused tracks, this is
+                        India's most forward-thinking AI conference launching in 2026.
+                    </p>
+                    <p class="overview-text">
+                        From generative AI and responsible AI to healthcare, fintech, and agriculture —
+                        every dimension of AI's transformative potential is explored, debated, and celebrated.
+                    </p>
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;">
+                        <div style="background:var(--off-white);border-radius:var(--r-lg);padding:1.25rem;text-align:center;">
+                            <div class="highlight-number" data-count="60" data-suffix="+">60+</div>
+                            <div class="highlight-label">Speakers</div>
+                        </div>
+                        <div style="background:var(--off-white);border-radius:var(--r-lg);padding:1.25rem;text-align:center;">
+                            <div class="highlight-number" data-count="10" data-suffix="+">10+</div>
+                            <div class="highlight-label">Tracks</div>
+                        </div>
+                        <div style="background:var(--off-white);border-radius:var(--r-lg);padding:1.25rem;text-align:center;">
+                            <div class="highlight-number" data-count="2" data-suffix=" Days">2 Days</div>
+                            <div class="highlight-label">Duration</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div class="format-grid">
+                        <div class="format-card">
+                            <div class="format-icon">🎤</div>
+                            <div>
+                                <h3>Keynote Sessions</h3>
+                                <p>Visionary addresses from global AI leaders, ministers, and tech titans setting the agenda</p>
+                            </div>
+                        </div>
+                        <div class="format-card">
+                            <div class="format-icon">🔬</div>
+                            <div>
+                                <h3>Technical Workshops</h3>
+                                <p>Hands-on, deep-dive sessions on cutting-edge AI tools, frameworks and methodologies</p>
+                            </div>
+                        </div>
+                        <div class="format-card">
+                            <div class="format-icon">💬</div>
+                            <div>
+                                <h3>Panel Discussions</h3>
+                                <p>Multi-perspective debates on AI policy, ethics, investment, and industry transformation</p>
+                            </div>
+                        </div>
+                        <div class="format-card">
+                            <div class="format-icon">📄</div>
+                            <div>
+                                <h3>Research Papers</h3>
+                                <p>Peer-reviewed presentations from academia and industry showcasing breakthrough research</p>
+                            </div>
+                        </div>
+                        <div class="format-card">
+                            <div class="format-icon">💡</div>
+                            <div>
+                                <h3>Innovation Talk</h3>
+                                <p>Step onto the Innovation Stage for 8 minutes to showcase your innovation strength and establish thought leadership before a live audience of policymakers, prospective clients, industry influencers, investors, and senior enterprise leaders</p>
+                            </div>
+                        </div>
+                        <div class="format-card">
+                            <div class="format-icon">🎓</div>
+                            <div>
+                                <h3>Training Workshop</h3>
+                                <p>Training Workshop on GenAI, Agentic AI, VibeCoding, AI Product Development, Recommender System Development, AI Chatbot Development, LLM Model Fine Tuning etc by experts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONFERENCE TRACKS -->
+    <section class="section-pad" style="background:var(--off-white);" id="tracks">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-map"></i> Topics</span>
+                <h2 class="section-title">Conference <span class="accent">Tracks</span></h2>
+                <p class="section-subtitle">10+ specialised tracks covering key dimensions of AI innovation</p>
+            </div>
+            <div class="tracks-grid">
+                <div class="track-card reveal reveal-delay-1">
+                    <div class="track-icon">🤖</div>
+                    <h3>Generative AI & LLMs</h3>
+                    <p>Large language models, multimodal AI, creative applications, and the future of human-AI interaction</p>
+                    <span class="track-tag">10 sessions</span>
+                </div>
+                <div class="track-card reveal reveal-delay-2">
+                    <div class="track-icon">🏛️</div>
+                    <h3>AI for Governance</h3>
+                    <p>Digital India, smart city platforms, e-governance, and public sector AI transformation</p>
+                    <span class="track-tag">6 sessions</span>
+                </div>
+                <div class="track-card reveal reveal-delay-3">
+                    <div class="track-icon">🏥</div>
+                    <h3>Healthcare & Life Sciences AI</h3>
+                    <p>Medical diagnosis, drug discovery, telemedicine, mental health AI, and clinical workflows</p>
+                    <span class="track-tag">8 sessions</span>
+                </div>
+                <div class="track-card reveal reveal-delay-1">
+                    <div class="track-icon">🏭</div>
+                    <h3>Manufacturing & Industry 4.0</h3>
+                    <p>Predictive maintenance, quality control, robotic automation, and smart factory systems</p>
+                    <span class="track-tag">6 sessions</span>
+                </div>
+                <div class="track-card reveal reveal-delay-2">
+                    <div class="track-icon">🌾</div>
+                    <h3>Agricultural AI</h3>
+                    <p>Precision farming, crop prediction, soil analytics, supply chain, and rural development</p>
+                    <span class="track-tag">5 sessions</span>
+                </div>
+                <div class="track-card reveal reveal-delay-3">
+                    <div class="track-icon">💰</div>
+                    <h3>FinTech & BFSI AI</h3>
+                    <p>Digital payments, fraud detection, algorithmic trading, credit scoring, and insurance AI</p>
+                    <span class="track-tag">7 sessions</span>
+                </div>
+                <div class="track-card reveal reveal-delay-1">
+                    <div class="track-icon">🎓</div>
+                    <h3>AI in Education</h3>
+                    <p>Personalized learning, intelligent tutoring, assessment AI, and EdTech innovation</p>
+                    <span class="track-tag">5 sessions</span>
+                </div>
+                <div class="track-card reveal reveal-delay-2">
+                    <div class="track-icon">⚖️</div>
+                    <h3>AI Ethics & Responsible AI</h3>
+                    <p>Bias mitigation, explainability, privacy-preserving AI, and regulatory frameworks</p>
+                    <span class="track-tag">6 sessions</span>
+                </div>
+                <div class="track-card reveal reveal-delay-3">
+                    <div class="track-icon">🚗</div>
+                    <h3>Mobility & Smart Transport</h3>
+                    <p>Autonomous vehicles, traffic management, logistics AI, and connected infrastructure</p>
+                    <span class="track-tag">4 sessions</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="section-pad" style="background:white;" id="schedule">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-calendar-alt"></i> Programme</span>
+                <h2 class="section-title">Event <span class="accent">Schedule</span></h2>
+                <p class="section-subtitle">Two packed days of keynotes, panels, workshops and networking</p>
+            </div>
+            <div class="reveal">
+                <div class="schedule-tabs">
+                    <button class="schedule-tab active" onclick="switchDay(0)">Day 1 — June 2</button>
+                    <button class="schedule-tab" onclick="switchDay(1)">Day 2 — June 3</button>
+                </div>
+                <div class="schedule-panel active" id="day-0">
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <div class="schedule-time">08:00 – 09:00</div>
+                            <div class="schedule-info">
+                                <h4>Registration & Welcome Coffee</h4>
+                                <p>Check-in, badge collection, networking breakfast</p>
+                            </div>
+                            <span class="schedule-badge badge-break">Registration</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">09:00 – 10:00</div>
+                            <div class="schedule-info">
+                                <h4>Opening Ceremony & Inaugural Keynote</h4>
+                                <p>Honourable Chief Guest, Government of India · Vision for Viksit Bharat AI</p>
+                            </div>
+                            <span class="schedule-badge badge-keynote">Keynote</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">10:00 – 11:00</div>
+                            <div class="schedule-info">
+                                <h4>India's AI Superpower Journey</h4>
+                                <p>Global AI Leaders · How India is charting a unique AI path</p>
+                            </div>
+                            <span class="schedule-badge badge-keynote">Keynote</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">11:00 – 11:30</div>
+                            <div class="schedule-info">
+                                <h4>Networking Tea Break</h4>
+                                <p>Exhibition Hall open — explore exhibitor booths</p>
+                            </div>
+                            <span class="schedule-badge badge-break">Break</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">11:30 – 13:00</div>
+                            <div class="schedule-info">
+                                <h4>Generative AI — Redefining the Possible</h4>
+                                <p>Panel: CEOs of India's leading AI companies debate GenAI's impact across sectors</p>
+                            </div>
+                            <span class="schedule-badge badge-panel">Panel</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">13:00 – 14:00</div>
+                            <div class="schedule-info">
+                                <h4>Lunch Break & Exhibition Tour</h4>
+                                <p>Networking lunch, exhibition floor open for hosted meetings</p>
+                            </div>
+                            <span class="schedule-badge badge-break">Lunch</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">14:00 – 17:00</div>
+                            <div class="schedule-info">
+                                <h4>Parallel Track Sessions</h4>
+                                <p>Healthcare AI · FinTech AI · AgriTech AI · Manufacturing AI · 10 simultaneous tracks</p>
+                            </div>
+                            <span class="schedule-badge badge-panel">Tracks</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">17:00 – 18:30</div>
+                            <div class="schedule-info">
+                                <h4>Hands-On AI Workshops</h4>
+                                <p>Prompt Engineering · Fine-tuning LLMs · Responsible AI · Computer Vision</p>
+                            </div>
+                            <span class="schedule-badge badge-workshop">Workshop</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">18:30 – 21:00</div>
+                            <div class="schedule-info">
+                                <h4>Gala Networking Evening</h4>
+                                <p>Industry mixer · Startup pitch showcase · Live AI demos</p>
+                            </div>
+                            <span class="schedule-badge badge-break">Networking</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="schedule-panel" id="day-1">
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <div class="schedule-time">09:00 – 10:00</div>
+                            <div class="schedule-info">
+                                <h4>Day 2 Opening Keynote</h4>
+                                <p>The Future of Work in an AI World · Global Perspectives on AI Talent</p>
+                            </div>
+                            <span class="schedule-badge badge-keynote">Keynote</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">10:00 – 11:30</div>
+                            <div class="schedule-info">
+                                <h4>AI Policy & Governance Roundtable</h4>
+                                <p>Senior Government Officials · Regulators · Industry Leaders · Policy framework debate</p>
+                            </div>
+                            <span class="schedule-badge badge-panel">Panel</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">11:30 – 12:00</div>
+                            <div class="schedule-info">
+                                <h4>Networking Break</h4>
+                                <p>Exhibition Hall · Startup Zone · Investor Meetings</p>
+                            </div>
+                            <span class="schedule-badge badge-break">Break</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">12:00 – 14:00</div>
+                            <div class="schedule-info">
+                                <h4>Research Paper Presentations</h4>
+                                <p>Peer-reviewed research from IITs, IISc, NIT and global institutions</p>
+                            </div>
+                            <span class="schedule-badge badge-workshop">Research</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">14:00 – 15:00</div>
+                            <div class="schedule-info">
+                                <h4>Lunch & Startup Pitches</h4>
+                                <p>Top 20 AI startups pitch to a panel of leading investors</p>
+                            </div>
+                            <span class="schedule-badge badge-break">Lunch</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">15:00 – 17:30</div>
+                            <div class="schedule-info">
+                                <h4>Parallel Track Sessions — Day 2</h4>
+                                <p>AI Ethics · Education AI · Smart Cities · Space Tech · Climate AI</p>
+                            </div>
+                            <span class="schedule-badge badge-panel">Tracks</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">17:30 – 19:00</div>
+                            <div class="schedule-info">
+                                <h4>Closing Keynote & Valedictory</h4>
+                                <p>Future roadmap · Announcements · Key commitments from industry and government</p>
+                            </div>
+                            <span class="schedule-badge badge-keynote">Keynote</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">19:00 – 22:00</div>
+                            <div class="schedule-info">
+                                <h4>Bharat AI Innovation Gala Dinner</h4>
+                                <p>Networking gala dinner · Special recognition for AI excellence</p>
+                            </div>
+                            <span class="schedule-badge badge-keynote">Gala</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED SPEAKERS -->
+    <section class="section-pad" style="background:var(--off-white);" id="speakers">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-users"></i> Speakers</span>
+                <h2 class="section-title">Featured <span class="accent">Speakers</span></h2>
+                <p class="section-subtitle">Speaker line-up to be announced — submit your proposal today</p>
+            </div>
+            <div class="speakers-grid">
+                <div class="speaker-card reveal reveal-delay-1">
+                    <div class="speaker-avatar">🧑‍💼</div>
+                    <h4>Dr. Rajesh Kumar</h4>
+                    <div class="speaker-role">Chief AI Officer</div>
+                    <div class="speaker-org">Ministry of Electronics & IT</div>
+                </div>
+                <div class="speaker-card reveal reveal-delay-2">
+                    <div class="speaker-avatar">👩‍🔬</div>
+                    <h4>Prof. Priya Sharma</h4>
+                    <div class="speaker-role">Director, AI Research</div>
+                    <div class="speaker-org">IIT Bombay</div>
+                </div>
+                <div class="speaker-card reveal reveal-delay-3">
+                    <div class="speaker-avatar">👨‍💻</div>
+                    <h4>Arjun Mehta</h4>
+                    <div class="speaker-role">CEO & Co-Founder</div>
+                    <div class="speaker-org">Sarvam AI</div>
+                </div>
+                <div class="speaker-card reveal reveal-delay-4">
+                    <div class="speaker-avatar">👩‍⚕️</div>
+                    <h4>Dr. Kavitha Rao</h4>
+                    <div class="speaker-role">Head of AI Health</div>
+                    <div class="speaker-org">AIIMS New Delhi</div>
+                </div>
+                <div class="speaker-card reveal reveal-delay-1">
+                    <div class="speaker-avatar">🧑‍🚀</div>
+                    <h4>Vikram Patel</h4>
+                    <div class="speaker-role">VP Engineering</div>
+                    <div class="speaker-org">Google DeepMind India</div>
+                </div>
+                <div class="speaker-card reveal reveal-delay-2">
+                    <div class="speaker-avatar">👩‍💼</div>
+                    <h4>Nandita Singh</h4>
+                    <div class="speaker-role">Chief Data Scientist</div>
+                    <div class="speaker-org">Reliance Jio</div>
+                </div>
+                <div class="speaker-card reveal reveal-delay-3">
+                    <div class="speaker-avatar">👨‍🏫</div>
+                    <h4>Prof. Suresh Babu</h4>
+                    <div class="speaker-role">AI Policy Advisor</div>
+                    <div class="speaker-org">NITI Aayog</div>
+                </div>
+                <div class="speaker-card reveal reveal-delay-4">
+                    <div class="speaker-avatar">🌟</div>
+                    <h4>+ 290 More</h4>
+                    <div class="speaker-role">Global AI Leaders</div>
+                    <div class="speaker-org">Announced Soon</div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem;">
+                <a href="register.html" class="btn btn-primary btn-lg">Secure Your Seat <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="registration-cta">
+        <div class="registration-cta-orb cta-orb-1"></div>
+        <div class="registration-cta-orb cta-orb-2"></div>
+        <div class="container">
+            <div class="cta-content reveal">
+                <span class="section-eyebrow" style="color:var(--gold-light);background:rgba(255,179,0,0.15);border-color:rgba(255,179,0,0.3);margin-bottom:1.5rem;">
+                    <i class="fas fa-ticket-alt"></i> Register Today
+                </span>
+                <h2>Don't Miss Asia's <span style="background:var(--grad-sunset);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Biggest AI Event</span></h2>
+                <p>Limited seats available for workshops and keynote sessions</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-primary btn-xl">Register Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="contact.html" class="btn btn-ghost btn-xl">Speak at the Conference</a>
+                </div>
+                <div class="early-bird">🎉 Early Bird: Save 30% — Offer ends soon</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:40px;width:auto;border-radius:10px;padding:5px;background:rgba(255,255,255,0.95);box-shadow:0 2px 6px rgba(0,0,0,0.08);">
+                    </div>
+                    <p class="footer-description">Advancing India's Future Through AI Innovation. Join us in creating a Viksit Bharat by 2047.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="conference.html">Conference</a></li>
+                        <li><a href="exhibition.html">Exhibition</a></li>
+                        <li><a href="register.html">Register & Delegation</a></li>
+                        <li><a href="startup-pitch.html">Startup Pitch</a></li>
+                        <li><a href="training-workshop.html">Workshops</a></li>
+                        <li><a href="partner.html">Partner</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Event Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="conference.html#schedule">Schedule</a></li>
+                        <li><a href="conference.html">Programme</a></li>
+                        <li><a href="exhibition.html">Exhibition Zones</a></li>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@bharataiinnovation.com</p>
+                        <p><i class="fas fa-phone"></i> +91 89765 80367</p>
+                        <p><i class="fas fa-map-marker-alt"></i> World Trade Center Mumbai, Cuffe Parade, Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bharat AI Innovation. All rights reserved. | Organized by Aegis Knowledge Trust</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function switchDay(idx) {
+            document.querySelectorAll('.schedule-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
+            document.querySelectorAll('.schedule-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership Opportunities — Bharat AI Innovation 2026</title>
+    <meta name="description" content="Influence India's AI Innovation ecosystem as a strategic partner. Explore sponsorship and partnership opportunities at Bharat AI Innovation Conference 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── Partnership Page Extra Styles ── */
+        
+        /* Partnership Tiers Grid */
+        .partnership-tiers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .tier-card {
+            background: white;
+            border: 2px solid var(--light);
+            border-radius: var(--r-2xl);
+            padding: 2.5rem;
+            transition: var(--t-med);
+            position: relative;
+            overflow: hidden;
+        }
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--grad-saffron);
+        }
+        .tier-card.exclusive {
+            border-color: var(--saffron);
+            background: linear-gradient(135deg, rgba(255,107,0,0.05) 0%, rgba(255,107,0,0.02) 100%);
+        }
+        .tier-card:hover {
+            border-color: rgba(255,107,0,0.4);
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-6px);
+        }
+        .tier-badge {
+            display: inline-block;
+            background: var(--grad-saffron);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.4rem 1rem;
+            border-radius: var(--r-full);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        .tier-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+        .tier-subtitle {
+            font-size: 0.95rem;
+            color: var(--dark-grey);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .tier-price {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--grad-sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+        .tier-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+        .tier-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--dark-grey);
+        }
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+        .tier-features li i {
+            color: var(--emerald);
+            font-size: 1rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        /* Beyond Sponsorship Grid */
+        .beyond-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .beyond-card {
+            background: white;
+            border: 1px solid var(--light);
+            border-radius: var(--r-xl);
+            padding: 2rem;
+            transition: var(--t-med);
+            position: relative;
+        }
+        .beyond-card:hover {
+            border-color: rgba(255,107,0,0.3);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        .beyond-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--grad-saffron);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: white;
+            box-shadow: var(--shadow-saffron);
+        }
+        .beyond-icon {
+            font-size: 2rem;
+            margin: 1.5rem 0 1rem;
+            text-align: center;
+        }
+        .beyond-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+        .beyond-card p {
+            font-size: 0.9rem;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .beyond-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .beyond-tag {
+            background: rgba(255,107,0,0.1);
+            color: var(--saffron);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--r-full);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Investment Overview */
+        .investment-overview {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            border-radius: var(--r-2xl);
+            padding: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .investment-overview::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .investment-content {
+            position: relative;
+            z-index: 1;
+        }
+        .investment-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        .premium-partnerships {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .premium-item {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: var(--r-xl);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--t-med);
+        }
+        .premium-item:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(6px);
+        }
+        .premium-info h4 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        .premium-info p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+        }
+        .premium-price {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            white-space: nowrap;
+        }
+        .specialized-opps {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .specialized-item {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: var(--r-lg);
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .specialized-item h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .specialized-item h5 i {
+            color: var(--gold-light);
+        }
+        .specialized-item .price {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--gold-light);
+        }
+        .specialized-item p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            margin: 0.5rem 0 0 0;
+        }
+
+        /* Benefits Showcase */
+        .benefits-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .benefit-showcase-card {
+            background: white;
+            border: 1px solid var(--light);
+            border-radius: var(--r-xl);
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--t-med);
+        }
+        .benefit-showcase-card:hover {
+            border-color: rgba(255,107,0,0.3);
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.03);
+        }
+        .benefit-showcase-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--grad-saffron);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-saffron);
+        }
+        .benefit-showcase-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+        .benefit-showcase-card p {
+            font-size: 0.95rem;
+            color: var(--dark-grey);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* CTA Box */
+        .partner-cta-box {
+            background: var(--grad-hero);
+            border-radius: var(--r-2xl);
+            padding: 3rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .partner-cta-box h3 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .partner-cta-box p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 1024px) {
+            .partnership-tiers { grid-template-columns: 1fr; }
+            .beyond-grid { grid-template-columns: repeat(2, 1fr); }
+            .investment-grid { grid-template-columns: 1fr; }
+            .benefits-showcase { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .beyond-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar dark-nav" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:44px;width:auto;border-radius:12px;padding:6px;background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="conference.html" class="nav-link">Conference</a>
+                <a href="exhibition.html" class="nav-link">Exhibition</a>
+                <a href="startup-pitch.html" class="nav-link">Startup Pitch</a>
+                <a href="training-workshop.html" class="nav-link">Workshops</a>
+                <a href="partner.html" class="nav-link active">Partner</a>
+                <a href="accommodation.html" class="nav-link">Accommodation</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="register.html" class="nav-cta">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="page-header-orb"></div>
+        <div class="page-header-content container">
+            <span class="page-header-eyebrow"><i class="fas fa-handshake"></i> Sponsorship Ecosystem</span>
+            <h1>Partnership<br>Opportunities</h1>
+            <p>Influence India's AI Innovation ecosystem as a strategic partner</p>
+        </div>
+    </section>
+
+    <!-- BENEFITS SHOWCASE -->
+    <section class="section-pad" style="background:white;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-star"></i> Why Partner With Us</span>
+                <h2 class="section-title">Premium Visibility & <span class="accent">Strategic Alignment</span></h2>
+                <p class="section-subtitle">Position your brand at the forefront of India's AI revolution</p>
+            </div>
+            <div class="benefits-showcase reveal">
+                <div class="benefit-showcase-card">
+                    <div class="benefit-showcase-icon">👁️</div>
+                    <h3>Premium Visibility</h3>
+                    <p>Top decision makers from Fortune 500 companies, government bodies, and leading AI institutions. Your brand seen by India's most influential AI stakeholders.</p>
+                </div>
+                <div class="benefit-showcase-card">
+                    <div class="benefit-showcase-icon">🎯</div>
+                    <h3>Strategic Alignment</h3>
+                    <p>National mission visibility. Align with India's vision for Viksit Bharat 2047 and position your brand as a key enabler of AI transformation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERSHIP TIERS -->
+    <section class="section-pad" style="background:var(--off-white);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-crown"></i> Premium Strategic Partnerships</span>
+                <h2 class="section-title">Partnership <span class="accent">Opportunities</span></h2>
+                <p class="section-subtitle">Influence India's AI Innovation ecosystem as a strategic partner</p>
+            </div>
+            <div class="partnership-tiers reveal">
+                <!-- Title Partner -->
+                <div class="tier-card exclusive">
+                    <span class="tier-badge">Exclusive</span>
+                    <h3>Title Partner</h3>
+                    <p class="tier-subtitle">Headline Branding & Keynote Access</p>
+                    <div class="tier-price">₹1.2 Cr</div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check-circle"></i> Keynote Speaking Slot</li>
+                        <li><i class="fas fa-check-circle"></i> Premium Booth Space</li>
+                        <li><i class="fas fa-check-circle"></i> VIP Dinner Host</li>
+                        <li><i class="fas fa-check-circle"></i> Headline branding across all materials</li>
+                        <li><i class="fas fa-check-circle"></i> Logo on main stage backdrop</li>
+                        <li><i class="fas fa-check-circle"></i> Exclusive brand integration</li>
+                        <li><i class="fas fa-check-circle"></i> Media coverage priority</li>
+                        <li><i class="fas fa-check-circle"></i> 20 complimentary VIP passes</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary btn-block">Contact Us <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Powered Partner -->
+                <div class="tier-card">
+                    <span class="tier-badge">Exclusive</span>
+                    <h3>Powered Partner</h3>
+                    <p class="tier-subtitle">Technology & Infrastructure Partner</p>
+                    <div class="tier-price">₹50 Lakhs</div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check-circle"></i> "Powered by" branding</li>
+                        <li><i class="fas fa-check-circle"></i> Premium exhibition booth</li>
+                        <li><i class="fas fa-check-circle"></i> Panel discussion slot</li>
+                        <li><i class="fas fa-check-circle"></i> Tech workshop opportunity</li>
+                        <li><i class="fas fa-check-circle"></i> Logo on event app and website</li>
+                        <li><i class="fas fa-check-circle"></i> Social media mentions</li>
+                        <li><i class="fas fa-check-circle"></i> 10 complimentary delegate passes</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary btn-block">Contact Us <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Associate Partner -->
+                <div class="tier-card">
+                    <span class="tier-badge" style="background:var(--grad-electric);">Multiple (4 Slots)</span>
+                    <h3>Associate Partner</h3>
+                    <p class="tier-subtitle">Category-specific partnership opportunities</p>
+                    <div class="tier-price">₹25 Lakhs</div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check-circle"></i> Category exclusivity (select sector)</li>
+                        <li><i class="fas fa-check-circle"></i> Standard exhibition booth</li>
+                        <li><i class="fas fa-check-circle"></i> Speaking opportunity</li>
+                        <li><i class="fas fa-check-circle"></i> Brand visibility on select materials</li>
+                        <li><i class="fas fa-check-circle"></i> Logo on website partners page</li>
+                        <li><i class="fas fa-check-circle"></i> 5 complimentary delegate passes</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary btn-block">Contact Us <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Innovation Partner -->
+                <div class="tier-card">
+                    <h3>Innovation Partner</h3>
+                    <p class="tier-subtitle">Championing new technologies and startups</p>
+                    <div class="tier-price">Custom</div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check-circle"></i> Innovation Zone Branding</li>
+                        <li><i class="fas fa-check-circle"></i> Panel Discussion Slot</li>
+                        <li><i class="fas fa-check-circle"></i> Award Category Sponsor</li>
+                        <li><i class="fas fa-check-circle"></i> Startup pavilion integration</li>
+                        <li><i class="fas fa-check-circle"></i> Innovation showcase opportunity</li>
+                        <li><i class="fas fa-check-circle"></i> Digital branding package</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline btn-block">Get Quote <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALIZED OPPORTUNITIES -->
+    <section class="section-pad" style="background:white;">
+        <div class="container">
+            <div class="investment-overview reveal">
+                <div class="investment-content">
+                    <div class="section-header" style="margin-bottom:2rem;">
+                        <span class="section-eyebrow" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);"><i class="fas fa-chart-line"></i> Investment Overview</span>
+                        <h2 class="section-title" style="color:white;">Sponsorship <span style="background:linear-gradient(135deg,#FFD700,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Categories</span></h2>
+                        <p class="section-subtitle" style="color:rgba(255,255,255,0.8);">Based on 16th Edition Sponsorship Structure</p>
+                    </div>
+                    <div class="investment-grid">
+                        <div class="premium-partnerships">
+                            <div class="premium-item">
+                                <div class="premium-info">
+                                    <h4>Title Partner</h4>
+                                    <p>Headline Branding & Keynote Access</p>
+                                </div>
+                                <div class="premium-price">₹1.2 Cr</div>
+                            </div>
+                            <div class="premium-item">
+                                <div class="premium-info">
+                                    <h4>Powered Partner</h4>
+                                    <p>Technology & Infrastructure</p>
+                                </div>
+                                <div class="premium-price">₹50 Lakhs</div>
+                            </div>
+                            <div class="premium-item">
+                                <div class="premium-info">
+                                    <h4>Associate Partner</h4>
+                                    <p>Category Exclusivity (4 slots)</p>
+                                </div>
+                                <div class="premium-price">₹25 Lakhs</div>
+                            </div>
+                        </div>
+                        <div class="specialized-opps">
+                            <h4 style="color:white;font-size:1.2rem;margin-bottom:1rem;"><i class="fas fa-star" style="color:var(--gold-light);"></i> Specialized Opportunities</h4>
+                            <div class="specialized-item">
+                                <h5><i class="fas fa-moon"></i> Innovation Night</h5>
+                                <div class="price">₹15 Lakhs</div>
+                                <p>Networking Gala, Toast Opportunity</p>
+                            </div>
+                            <div class="specialized-item">
+                                <h5><i class="fas fa-users"></i> Leaders Round Table</h5>
+                                <div class="price">₹10 Lakhs</div>
+                                <p>Policy Dialogue, Thought Leadership</p>
+                            </div>
+                            <div class="specialized-item">
+                                <h5><i class="fas fa-id-badge"></i> Lanyard & Conf. Bag</h5>
+                                <div class="price">₹3 Lakhs</div>
+                                <p>High Visibility, Attendee Engagement</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="text-align:center;margin-top:2rem;font-size:0.85rem;color:rgba(255,255,255,0.6);">
+                        <i class="fas fa-info-circle"></i> Investment amounts exclude applicable taxes. Trophy Partner & Innovators Round Table pricing on request
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEYOND SPONSORSHIP -->
+    <section class="section-pad" style="background:var(--off-white);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-lightbulb"></i> Other Branding & Engagement Options</span>
+                <h2 class="section-title">Beyond <span class="accent">Sponsorship</span></h2>
+                <p class="section-subtitle">Custom activations tailored to your marketing goals</p>
+            </div>
+            <div class="beyond-grid reveal">
+                <!-- Option 1 -->
+                <div class="beyond-card">
+                    <div class="beyond-number">01</div>
+                    <div class="beyond-icon">🚀</div>
+                    <h4>New Product Launch</h4>
+                    <p>Unveil your latest innovation on the AGBA stage. Leverage the presence of CXOs, media, and investors for maximum impact.</p>
+                    <div class="beyond-tags">
+                        <span class="beyond-tag">Live Reveal</span>
+                        <span class="beyond-tag">Media Q&A</span>
+                    </div>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="beyond-card">
+                    <div class="beyond-number">02</div>
+                    <div class="beyond-icon">🤝</div>
+                    <h4>Partnership Announcement</h4>
+                    <p>Amplify strategic alliances on the AGBA platform. Announce major collaborations with validation and wide reach.</p>
+                    <div class="beyond-tags">
+                        <span class="beyond-tag">Press Release</span>
+                        <span class="beyond-tag">MOU Signing</span>
+                    </div>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="beyond-card">
+                    <div class="beyond-number">03</div>
+                    <div class="beyond-icon">💬</div>
+                    <h4>Focus Group Roundtable</h4>
+                    <p>Bring prospective & existing clients together with influencers for targeted discussions.</p>
+                    <div class="beyond-tags">
+                        <span class="beyond-tag">Closed Door</span>
+                        <span class="beyond-tag">B: Open Stage</span>
+                    </div>
+                </div>
+
+                <!-- Option 4 -->
+                <div class="beyond-card">
+                    <div class="beyond-number">04</div>
+                    <div class="beyond-icon">🚗</div>
+                    <h4>Road Shows</h4>
+                    <p>Multi-city brand activation across AI + Cloud + Fintech ecosystems.</p>
+                    <div class="beyond-tags">
+                        <span class="beyond-tag">Keynote + Product Demo</span>
+                        <span class="beyond-tag">Fireside Chat</span>
+                        <span class="beyond-tag">Masterclass</span>
+                    </div>
+                </div>
+
+                <!-- Option 5 -->
+                <div class="beyond-card">
+                    <div class="beyond-number">05</div>
+                    <div class="beyond-icon">📺</div>
+                    <h4>TV & YouTube Panel</h4>
+                    <p>High-impact thought leadership sessions broadcast on national TV channels and digital platforms.</p>
+                    <div class="beyond-tags">
+                        <span class="beyond-tag">Pre-Event</span>
+                        <span class="beyond-tag">On-Stage</span>
+                        <span class="beyond-tag">TV Studio</span>
+                    </div>
+                </div>
+
+                <!-- Option 6 -->
+                <div class="beyond-card">
+                    <div class="beyond-number">06</div>
+                    <div class="beyond-icon">💻</div>
+                    <h4>Hackathons & Challenges</h4>
+                    <p>Sponsor industry challenges to crowdsource solutions. Engage with top tech talent and innovation contributors globally.</p>
+                    <div class="beyond-tags">
+                        <span class="beyond-tag">Talent Hunt</span>
+                        <span class="beyond-tag">Crowdsource</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNER TYPES -->
+    <section class="section-pad" style="background:white;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-layer-group"></i> Partner Categories</span>
+                <h2 class="section-title">Specialized <span class="accent">Partner Tracks</span></h2>
+                <p class="section-subtitle">Find the partnership category that aligns with your goals</p>
+            </div>
+            <div class="beyond-grid reveal">
+                <div class="beyond-card">
+                    <div class="beyond-icon">👑</div>
+                    <h4>Title Partner</h4>
+                    <p>Maximum visibility across all event collateral. Keynote speaking slot and VIP dinner host privileges.</p>
+                </div>
+                <div class="beyond-card">
+                    <div class="beyond-icon">💡</div>
+                    <h4>Innovation Partner</h4>
+                    <p>Championing new technologies and startups. Innovation zone branding and award category sponsorship.</p>
+                </div>
+                <div class="beyond-card">
+                    <div class="beyond-icon">🏢</div>
+                    <h4>Sector Partner</h4>
+                    <p>Track sponsorship for healthcare, finance, agriculture, or manufacturing AI applications.</p>
+                </div>
+                <div class="beyond-card">
+                    <div class="beyond-icon">🌐</div>
+                    <h4>Technology Partner</h4>
+                    <p>Tech workshop opportunities and demo area sponsorship. Showcase your AI solutions.</p>
+                </div>
+                <div class="beyond-card">
+                    <div class="beyond-icon">🎨</div>
+                    <h4>Ecosystem Partner</h4>
+                    <p>Community outreach and logo on website. Support India's AI ecosystem growth.</p>
+                </div>
+                <div class="beyond-card">
+                    <div class="beyond-icon">📰</div>
+                    <h4>Media Partner</h4>
+                    <p>Amplify event reach through strategic media partnerships and content collaboration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BOX -->
+    <section class="section-pad" style="background:var(--off-white);">
+        <div class="container">
+            <div class="partner-cta-box reveal">
+                <h3>Looking for Bespoke Partnership?</h3>
+                <p>Our team can create custom partnership packages tailored to your specific marketing objectives, brand positioning, and budget requirements.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="contact.html" class="btn btn-primary btn-lg">Contact Partnership Team <i class="fas fa-envelope"></i></a>
+                    <a href="tel:+918976580367" class="btn btn-ghost btn-lg" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3);">Call Now <i class="fas fa-phone"></i></a>
+                </div>
+                <p style="font-size:0.9rem;margin-top:1.5rem;opacity:0.8;">
+                    <i class="fas fa-envelope"></i> partner@bharataiinnovation.com &nbsp;|&nbsp; <i class="fas fa-phone"></i> +91 89765 80367
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:40px;width:auto;border-radius:10px;padding:5px;background:rgba(255,255,255,0.95);box-shadow:0 2px 6px rgba(0,0,0,0.08);">
+                    </div>
+                    <p class="footer-description">Advancing India's Future Through AI Innovation. Join us in creating a Viksit Bharat by 2047.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="conference.html">Conference</a></li>
+                        <li><a href="exhibition.html">Exhibition</a></li>
+                        <li><a href="register.html">Register & Delegation</a></li>
+                        <li><a href="startup-pitch.html">Startup Pitch</a></li>
+                        <li><a href="training-workshop.html">Workshops</a></li>
+                        <li><a href="partner.html">Partner</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Event Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="conference.html#schedule">Schedule</a></li>
+                        <li><a href="conference.html">Programme</a></li>
+                        <li><a href="exhibition.html">Exhibition Zones</a></li>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                        <li><a href="contact.html">Travel Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@bharataiinnovation.com</p>
+                        <p><i class="fas fa-phone"></i> +91 89765 80367</p>
+                        <p><i class="fas fa-map-marker-alt"></i> World Trade Center Mumbai, Cuffe Parade, Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bharat AI Innovation. All rights reserved. | Organized by Aegis Knowledge Trust</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

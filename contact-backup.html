@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Bharat AI Innovation 2026</title>
+    <meta name="description" content="Get in touch with the Bharat AI Innovation 2026 team — registration, exhibition, partnerships, speaking opportunities and media enquiries.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ═══════════════════════════════════════════
+           CONTACT PAGE — WORLD CLASS REDESIGN
+        ═══════════════════════════════════════════ */
+
+        /* --- Contact Hero --- */
+        .contact-hero {
+            position: relative;
+            padding: 160px 0 80px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0D0F1A 0%, #1A1F3C 50%, #0D0F1A 100%);
+        }
+        .contact-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 60% 70% at 80% 20%, rgba(43,140,255,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 15% 70%, rgba(255,107,0,0.1) 0%, transparent 55%);
+        }
+        .contact-hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        .contact-hero-content { position: relative; z-index: 2; text-align: center; }
+        .contact-hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: rgba(43,140,255,0.12);
+            border: 1px solid rgba(43,140,255,0.25);
+            border-radius: 100px; padding: 0.45rem 1.25rem;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #5BA8FF; margin-bottom: 1.5rem;
+        }
+        .contact-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900;
+            color: white; line-height: 1.1; margin-bottom: 1.2rem;
+        }
+        .contact-hero h1 span { background: linear-gradient(135deg, #FF7A00, #FF3D00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .contact-hero-sub {
+            font-size: 1.1rem; color: rgba(255,255,255,0.6);
+            max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7;
+        }
+        /* Quick contact pills */
+        .contact-pills {
+            display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+        }
+        .contact-pill {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px; padding: 0.65rem 1.4rem;
+            font-size: 0.88rem; color: rgba(255,255,255,0.8); font-weight: 500;
+            text-decoration: none; transition: all 0.25s;
+        }
+        .contact-pill:hover { background: rgba(255,107,0,0.1); border-color: rgba(255,107,0,0.3); color: #FF8C40; }
+        .contact-pill i { color: #FF7A00; font-size: 0.85rem; }
+
+        /* --- Channel Cards (full-width strip) --- */
+        .channel-strip { background: var(--off-white); padding: 60px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+        .channel-card {
+            background: white;
+            border: 1.5px solid rgba(0,0,0,0.06);
+            border-radius: 20px; padding: 1.75rem 1.5rem;
+            text-align: center; transition: all 0.3s;
+            cursor: default;
+        }
+        .channel-card:hover { border-color: rgba(255,107,0,0.25); box-shadow: 0 12px 40px rgba(255,107,0,0.08); transform: translateY(-5px); }
+        .channel-icon-wrap {
+            width: 60px; height: 60px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin: 0 auto 1rem;
+            transition: all 0.3s;
+        }
+        .channel-card:hover .channel-icon-wrap { transform: scale(1.1); }
+        .channel-title { font-size: 1rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.3rem; }
+        .channel-desc { font-size: 0.82rem; color: var(--dark-grey); margin-bottom: 0.75rem; line-height: 1.5; }
+        .channel-value { font-size: 0.88rem; font-weight: 700; color: var(--saffron); text-decoration: none; }
+        .channel-value:hover { text-decoration: underline; }
+        .channel-badge {
+            display: inline-block; margin-top: 0.5rem;
+            background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2);
+            color: #059669; font-size: 0.68rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            border-radius: 100px; padding: 0.2rem 0.6rem;
+        }
+
+        /* --- Main Section --- */
+        .contact-main-section { padding: 80px 0 100px; background: white; }
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* --- Form Area --- */
+        .contact-form-wrap { }
+        .contact-section-label {
+            font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--saffron); margin-bottom: 0.6rem;
+        }
+        .contact-form-heading { font-size: 2rem; font-weight: 900; color: var(--charcoal); line-height: 1.2; margin-bottom: 0.6rem; }
+        .contact-form-sub { font-size: 0.95rem; color: var(--dark-grey); line-height: 1.7; margin-bottom: 2.5rem; }
+
+        /* Enquiry Type Selector */
+        .enquiry-types {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; margin-bottom: 2rem;
+        }
+        .enquiry-type {
+            display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+            padding: 0.9rem 0.5rem;
+            border: 1.5px solid #E5E8EF;
+            border-radius: 14px; cursor: pointer; transition: all 0.22s;
+            text-align: center; background: #FAFBFC;
+        }
+        .enquiry-type:hover { border-color: rgba(255,107,0,0.3); background: white; }
+        .enquiry-type.active { border-color: var(--saffron); background: rgba(255,107,0,0.04); box-shadow: 0 0 0 3px rgba(255,107,0,0.1); }
+        .enquiry-type-icon { font-size: 1.3rem; }
+        .enquiry-type-label { font-size: 0.72rem; font-weight: 700; color: var(--dark-grey); line-height: 1.3; }
+        .enquiry-type.active .enquiry-type-label { color: var(--saffron); }
+
+        /* Form Panel */
+        .cf-panel {
+            background: #FAFBFC;
+            border: 1.5px solid #E5E8EF;
+            border-radius: 20px; padding: 2rem;
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { margin-bottom: 1.15rem; }
+        .form-group label {
+            display: block; font-size: 0.78rem; font-weight: 700;
+            color: var(--charcoal); margin-bottom: 0.4rem; letter-spacing: 0.02em;
+        }
+        .form-group label .req { color: var(--saffron); margin-left: 2px; }
+        .form-control {
+            width: 100%; padding: 0.75rem 1rem;
+            border: 1.5px solid #E5E8EF; border-radius: 12px;
+            font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--charcoal);
+            background: white; transition: all 0.2s; outline: none; box-sizing: border-box;
+        }
+        .form-control:focus { border-color: var(--saffron); box-shadow: 0 0 0 4px rgba(255,107,0,0.08); }
+        .form-control::placeholder { color: #B0B8C8; }
+        .form-control.error { border-color: #EF4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.08); }
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234A5280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 1rem center; background-size: 16px;
+            padding-right: 2.5rem; cursor: pointer;
+        }
+        textarea.form-control { resize: vertical; min-height: 130px; }
+        .field-err { font-size: 0.74rem; color: #EF4444; margin-top: 0.3rem; display: none; }
+        .field-err.show { display: block; }
+
+        /* Consent */
+        .consent-row {
+            display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.5rem;
+        }
+        .mini-check { position: relative; width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+        .mini-check input { opacity: 0; position: absolute; width: 0; height: 0; }
+        .mini-check-box {
+            position: absolute; inset: 0; border: 2px solid #CBD5E0; border-radius: 5px;
+            background: white; transition: all 0.2s; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .mini-check input:checked ~ .mini-check-box { background: var(--saffron); border-color: var(--saffron); }
+        .mini-check input:checked ~ .mini-check-box::after { content: '✓'; color: white; font-size: 0.7rem; font-weight: 900; }
+        .consent-text { font-size: 0.83rem; color: var(--dark-grey); line-height: 1.55; cursor: pointer; }
+        .consent-text a { color: var(--saffron); font-weight: 600; }
+
+        /* Submit */
+        .contact-submit-btn {
+            width: 100%;
+            display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #FF7A00 0%, #FF3D00 100%);
+            color: white; border: none; border-radius: 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem; font-weight: 800; cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(255,107,0,0.28);
+        }
+        .contact-submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,107,0,0.42); }
+        .contact-submit-btn i { transition: transform 0.3s; }
+        .contact-submit-btn:hover i.send-icon { transform: rotate(-15deg) scale(1.2); }
+        .contact-submit-btn.loading { opacity: 0.85; pointer-events: none; }
+
+        /* --- Sidebar --- */
+        .contact-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        /* Department cards */
+        .dept-card {
+            background: white; border: 1.5px solid rgba(0,0,0,0.07);
+            border-radius: 20px; padding: 1.75rem; box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+        }
+        .dept-card-heading { font-size: 1.05rem; font-weight: 800; color: var(--charcoal); margin-bottom: 1.25rem; }
+        .dept-item {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+        .dept-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .dept-item:first-child { padding-top: 0; }
+        .dept-icon {
+            width: 42px; height: 42px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; flex-shrink: 0; transition: all 0.3s;
+        }
+        .dept-item:hover .dept-icon { transform: scale(1.1); }
+        .dept-name { font-size: 0.8rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.15rem; }
+        .dept-contact { font-size: 0.82rem; color: var(--saffron); font-weight: 600; text-decoration: none; display: block; }
+        .dept-contact:hover { text-decoration: underline; }
+        .dept-note { font-size: 0.72rem; color: var(--mid-grey); }
+
+        /* Office hours card */
+        .hours-card {
+            background: linear-gradient(135deg, #0D0F1A, #1A1F3C);
+            border-radius: 20px; padding: 1.75rem; overflow: hidden; position: relative;
+        }
+        .hours-card::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 25px 25px;
+        }
+        .hours-inner { position: relative; z-index: 1; }
+        .hours-title { font-size: 0.95rem; font-weight: 800; color: white; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .hours-title i { color: #FF7A00; }
+        .hours-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.83rem;
+        }
+        .hours-row:last-child { border-bottom: none; }
+        .hours-day { color: rgba(255,255,255,0.55); font-weight: 500; }
+        .hours-time { color: rgba(255,255,255,0.85); font-weight: 700; }
+        .hours-time.closed { color: rgba(255,255,255,0.3); }
+        .hours-now {
+            margin-top: 1rem;
+            background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25);
+            border-radius: 10px; padding: 0.6rem 0.85rem;
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.8rem; color: #10B981; font-weight: 700;
+        }
+        .hours-now-dot { width: 8px; height: 8px; border-radius: 50%; background: #10B981; animation: blink 1.5s ease-in-out infinite; }
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+        /* Social card */
+        .social-card {
+            background: white; border: 1.5px solid rgba(0,0,0,0.07);
+            border-radius: 20px; padding: 1.75rem; box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+        }
+        .social-card-title { font-size: 0.95rem; font-weight: 800; color: var(--charcoal); margin-bottom: 1rem; }
+        .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+        .social-btn {
+            display: flex; align-items: center; gap: 0.6rem;
+            padding: 0.75rem 1rem; border-radius: 12px;
+            border: 1.5px solid #E5E8EF;
+            text-decoration: none; transition: all 0.25s;
+        }
+        .social-btn-icon { font-size: 1.1rem; }
+        .social-btn-text { }
+        .social-btn-name { font-size: 0.78rem; font-weight: 700; color: var(--charcoal); line-height: 1; }
+        .social-btn-handle { font-size: 0.7rem; color: var(--mid-grey); }
+        .social-btn.tw:hover  { border-color: #1DA1F2; background: rgba(29,161,242,0.04); }
+        .social-btn.li:hover  { border-color: #0077B5; background: rgba(0,119,181,0.04); }
+        .social-btn.yt:hover  { border-color: #FF0000; background: rgba(255,0,0,0.04); }
+        .social-btn.ig:hover  { border-color: #E1306C; background: rgba(225,48,108,0.04); }
+
+        /* Map section */
+        .map-section { background: var(--off-white); padding: 80px 0; }
+        .map-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .map-info { }
+        .map-info-eyebrow { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--saffron); margin-bottom: 0.6rem; }
+        .map-info h2 { font-family: 'Montserrat', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--charcoal); margin-bottom: 1rem; line-height: 1.2; }
+        .map-info p { font-size: 0.95rem; color: var(--dark-grey); line-height: 1.7; margin-bottom: 1.5rem; }
+        .venue-details { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.75rem; }
+        .venue-detail { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.88rem; color: var(--dark-grey); }
+        .venue-detail i { color: var(--saffron); margin-top: 2px; flex-shrink: 0; width: 16px; }
+        .venue-detail strong { color: var(--charcoal); font-weight: 700; }
+        .map-frame { border-radius: 20px; overflow: hidden; border: 1.5px solid rgba(0,0,0,0.08); box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+        .map-placeholder {
+            background: linear-gradient(135deg, #1A1F3C, #0D0F1A);
+            height: 360px; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center; padding: 2rem;
+            position: relative; overflow: hidden;
+        }
+        .map-placeholder::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .map-placeholder-inner { position: relative; z-index: 1; }
+        .map-pin-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .map-placeholder h3 { font-size: 1.2rem; font-weight: 800; color: white; margin-bottom: 0.4rem; }
+        .map-placeholder p { font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+
+        /* FAQ section */
+        .faq-section { background: white; padding: 80px 0; }
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .faq-item {
+            background: #FAFBFC; border: 1.5px solid rgba(0,0,0,0.06);
+            border-radius: 16px; overflow: hidden; transition: all 0.25s;
+        }
+        .faq-item:hover { border-color: rgba(255,107,0,0.2); }
+        .faq-item.open { border-color: rgba(255,107,0,0.3); background: white; }
+        .faq-q {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1.1rem 1.25rem; cursor: pointer;
+            font-size: 0.9rem; font-weight: 700; color: var(--charcoal);
+            gap: 1rem;
+        }
+        .faq-q-icon {
+            width: 26px; height: 26px; border-radius: 50%;
+            background: rgba(255,107,0,0.08); color: var(--saffron);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; flex-shrink: 0;
+            transition: all 0.3s;
+        }
+        .faq-item.open .faq-q-icon { background: var(--saffron); color: white; transform: rotate(45deg); }
+        .faq-a {
+            max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s;
+            font-size: 0.85rem; color: var(--dark-grey); line-height: 1.65;
+            padding: 0 1.25rem;
+        }
+        .faq-item.open .faq-a { max-height: 200px; padding: 0 1.25rem 1.1rem; }
+
+        /* Success toast */
+        .success-toast {
+            position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+            background: white; border-radius: 16px; padding: 1.25rem 1.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            display: flex; align-items: center; gap: 1rem;
+            transform: translateY(120px); opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-left: 4px solid #10B981; max-width: 360px;
+        }
+        .success-toast.show { transform: translateY(0); opacity: 1; }
+        .success-toast-icon { font-size: 1.6rem; flex-shrink: 0; }
+        .success-toast-title { font-size: 0.95rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.2rem; }
+        .success-toast-msg { font-size: 0.82rem; color: var(--dark-grey); line-height: 1.4; }
+        .success-toast-close { position: absolute; top: 0.75rem; right: 0.75rem; cursor: pointer; color: var(--mid-grey); font-size: 0.75rem; }
+        .success-toast-close:hover { color: var(--charcoal); }
+
+        @media (max-width: 1024px) { .contact-layout { grid-template-columns: 1fr; } .map-layout { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+            .channel-grid { grid-template-columns: repeat(2, 1fr); }
+            .enquiry-types { grid-template-columns: repeat(3, 1fr); }
+            .faq-grid { grid-template-columns: 1fr; }
+            .social-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .channel-grid { grid-template-columns: 1fr 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .enquiry-types { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:44px;width:auto;border-radius:12px;padding:6px;background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="conference.html" class="nav-link">Conference</a>
+                <a href="exhibition.html" class="nav-link">Exhibition</a>
+                <a href="startup-pitch.html" class="nav-link">Startup Pitch</a>
+                <a href="training-workshop.html" class="nav-link">Workshops</a>
+                <a href="partner.html" class="nav-link">Partner</a>
+                <a href="accommodation.html" class="nav-link">Accommodation</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="register.html" class="nav-cta">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="contact-hero">
+        <div class="contact-hero-grid"></div>
+        <div class="container contact-hero-content">
+            <div class="contact-hero-eyebrow reveal"><i class="fas fa-satellite-dish"></i> Let's Connect</div>
+            <h1 class="reveal">Get in <span>Touch</span><br>with Our Team</h1>
+            <p class="contact-hero-sub reveal">Whether you have a question about registration, want to partner with us, or pitch a speaking opportunity — our team responds within 24 hours.</p>
+            <div class="contact-pills reveal">
+                <a href="mailto:info@bharataiinnovation.com" class="contact-pill"><i class="fas fa-envelope"></i> info@bharataiinnovation.com</a>
+                <a href="tel:+918976580367" class="contact-pill"><i class="fas fa-phone"></i> +91 89765 80367</a>
+                <span class="contact-pill"><i class="fas fa-map-marker-alt"></i> World Trade Center Mumbai, Cuffe Parade</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHANNEL CARDS -->
+    <section class="channel-strip">
+        <div class="container">
+            <div class="channel-grid" style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
+                <div class="channel-card reveal reveal-delay-1" style="text-align:center;">
+                    <div class="channel-icon-wrap" style="background:linear-gradient(135deg,rgba(255,107,0,0.1),rgba(255,61,0,0.08));margin:0 auto;">
+                        <i class="fas fa-phone" style="color:var(--saffron);"></i>
+                    </div>
+                    <div class="channel-title">Call Us</div>
+                    <div class="channel-desc">For all enquiries — registration, exhibition, speaking, partnerships & media</div>
+                    <a href="tel:+918976580367" class="channel-value">+91 89765 80367</a>
+                </div>
+                <div class="channel-card reveal reveal-delay-2" style="text-align:center;">
+                    <div class="channel-icon-wrap" style="background:linear-gradient(135deg,rgba(43,140,255,0.1),rgba(43,140,255,0.06));margin:0 auto;">
+                        <i class="fas fa-envelope" style="color:#2B8CFF;"></i>
+                    </div>
+                    <div class="channel-title">Email Us</div>
+                    <div class="channel-desc">Send us a message and we'll get back to you within one business day</div>
+                    <a href="mailto:info@bharataiinnovation.com" class="channel-value">info@bharataiinnovation.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTACT FORM + SIDEBAR -->
+    <section class="contact-main-section">
+        <div class="container">
+            <div class="contact-layout">
+
+                <!-- LEFT: Form -->
+                <div>
+                    <div class="contact-section-label reveal">Send a Message</div>
+                    <h2 class="contact-form-heading reveal">We'd Love to <span style="background:linear-gradient(135deg,#FF7A00,#FF3D00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Hear from You</span></h2>
+                    <p class="contact-form-sub reveal">Fill out the form below and a member of our team will get back to you within one business day.</p>
+
+                    <!-- Enquiry type selector -->
+                    <div class="reveal">
+                        <div style="font-size:0.78rem;font-weight:700;color:var(--charcoal);margin-bottom:0.75rem;letter-spacing:0.02em;">What is your enquiry about?</div>
+                        <div class="enquiry-types">
+                            <div class="enquiry-type active" onclick="selectEnquiry(this,'General Enquiry')">
+                                <span class="enquiry-type-icon">💬</span><span class="enquiry-type-label">General Enquiry</span>
+                            </div>
+                            <div class="enquiry-type" onclick="selectEnquiry(this,'Registration & Passes')">
+                                <span class="enquiry-type-icon">🎟️</span><span class="enquiry-type-label">Registration</span>
+                            </div>
+                            <div class="enquiry-type" onclick="selectEnquiry(this,'Exhibition & Booth Booking')">
+                                <span class="enquiry-type-icon">🏪</span><span class="enquiry-type-label">Exhibition</span>
+                            </div>
+                            <div class="enquiry-type" onclick="selectEnquiry(this,'Speaking Opportunity')">
+                                <span class="enquiry-type-icon">🎤</span><span class="enquiry-type-label">Speaking</span>
+                            </div>
+                            <div class="enquiry-type" onclick="selectEnquiry(this,'Sponsorship & Partnership')">
+                                <span class="enquiry-type-icon">🤝</span><span class="enquiry-type-label">Sponsorship</span>
+                            </div>
+                            <div class="enquiry-type" onclick="selectEnquiry(this,'Media & Press')">
+                                <span class="enquiry-type-icon">📰</span><span class="enquiry-type-label">Media</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="cf-panel reveal">
+                        <form id="contactForm" novalidate>
+                            <input type="hidden" id="enquiry_type" value="General Enquiry">
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="c_fname">First Name <span class="req">*</span></label>
+                                    <input type="text" id="c_fname" class="form-control" placeholder="Rahul" required>
+                                    <div class="field-err" id="err-cfname">Required field</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="c_lname">Last Name <span class="req">*</span></label>
+                                    <input type="text" id="c_lname" class="form-control" placeholder="Sharma" required>
+                                    <div class="field-err" id="err-clname">Required field</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="c_email">Email Address <span class="req">*</span></label>
+                                    <input type="email" id="c_email" class="form-control" placeholder="rahul@company.com" required>
+                                    <div class="field-err" id="err-cemail">Enter a valid email address</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="c_phone">Phone Number</label>
+                                    <input type="tel" id="c_phone" class="form-control" placeholder="+91 98765 43210">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="c_org">Organisation</label>
+                                    <input type="text" id="c_org" class="form-control" placeholder="Company / Institution">
+                                </div>
+                                <div class="form-group">
+                                    <label for="c_role">Your Role</label>
+                                    <select id="c_role" class="form-control">
+                                        <option value="">Select your role</option>
+                                        <option>C-Suite / Founder</option>
+                                        <option>Senior Management</option>
+                                        <option>Manager / Director</option>
+                                        <option>Individual Contributor</option>
+                                        <option>Researcher / Academic</option>
+                                        <option>Student</option>
+                                        <option>Press / Journalist</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="c_message">Your Message <span class="req">*</span></label>
+                                <textarea id="c_message" class="form-control" rows="5" placeholder="Tell us how we can help you. The more detail you provide, the better we can assist..." required></textarea>
+                                <div class="field-err" id="err-cmessage">Please enter your message (min. 10 characters)</div>
+                            </div>
+
+                            <div class="consent-row">
+                                <label class="mini-check">
+                                    <input type="checkbox" id="c_consent" required>
+                                    <span class="mini-check-box"></span>
+                                </label>
+                                <label for="c_consent" class="consent-text">
+                                    I agree to the <a href="#">Privacy Policy</a> and consent to being contacted by the Bharat AI Innovation team regarding my enquiry. <span style="color:var(--saffron);">*</span>
+                                </label>
+                            </div>
+                            <div class="field-err" id="err-cconsent" style="margin-top:-1rem;margin-bottom:1rem;">Please accept the privacy policy to continue.</div>
+
+                            <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">
+                                <i class="fas fa-paper-plane send-icon"></i>
+                                Send Message
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Sidebar -->
+                <div class="contact-sidebar">
+
+                    <!-- Contact Info -->
+                    <div class="dept-card reveal">
+                        <div class="dept-card-heading">Contact Us</div>
+                        <div class="dept-item">
+                            <div class="dept-icon" style="background:linear-gradient(135deg,rgba(255,107,0,0.12),rgba(255,61,0,0.06));color:var(--saffron);">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="dept-name">Phone</div>
+                                <a href="tel:+918976580367" class="dept-contact">+91 89765 80367</a>
+                                <div class="dept-note">For all enquiries</div>
+                            </div>
+                        </div>
+                        <div class="dept-item">
+                            <div class="dept-icon" style="background:linear-gradient(135deg,rgba(43,140,255,0.12),rgba(43,140,255,0.06));color:#2B8CFF;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="dept-name">Email</div>
+                                <a href="mailto:info@bharataiinnovation.com" class="dept-contact">info@bharataiinnovation.com</a>
+                                <div class="dept-note">We reply within 1 business day</div>
+                            </div>
+                        </div>
+                        <div class="dept-item">
+                            <div class="dept-icon" style="background:linear-gradient(135deg,rgba(16,185,129,0.12),rgba(5,150,105,0.06));color:#059669;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <div class="dept-name">Venue</div>
+                                <div class="dept-contact" style="color:var(--charcoal);">World Trade Center Mumbai</div>
+                                <div class="dept-note">Cuffe Parade, Mumbai</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hours -->
+                    <div class="hours-card reveal">
+                        <div class="hours-inner">
+                            <div class="hours-title"><i class="fas fa-clock"></i> Support Hours (IST)</div>
+                            <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">9:00 AM – 7:00 PM</span></div>
+                            <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 AM – 4:00 PM</span></div>
+                            <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span></div>
+                            <div class="hours-row"><span class="hours-day">Phone Support</span><span class="hours-time">+91 89765 80367</span></div>
+                            <div class="hours-now"><div class="hours-now-dot"></div> Team is currently available</div>
+                        </div>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="social-card reveal">
+                        <div class="social-card-title">Follow & Connect</div>
+                        <div class="social-grid">
+                            <a href="#" class="social-btn tw">
+                                <span class="social-btn-icon" style="color:#1DA1F2;"><i class="fab fa-twitter"></i></span>
+                                <div class="social-btn-text"><div class="social-btn-name">Twitter / X</div><div class="social-btn-handle">@BharatAI2026</div></div>
+                            </a>
+                            <a href="#" class="social-btn li">
+                                <span class="social-btn-icon" style="color:#0077B5;"><i class="fab fa-linkedin-in"></i></span>
+                                <div class="social-btn-text"><div class="social-btn-name">LinkedIn</div><div class="social-btn-handle">Bharat AI Innovation</div></div>
+                            </a>
+                            <a href="#" class="social-btn yt">
+                                <span class="social-btn-icon" style="color:#FF0000;"><i class="fab fa-youtube"></i></span>
+                                <div class="social-btn-text"><div class="social-btn-name">YouTube</div><div class="social-btn-handle">BharatAI Official</div></div>
+                            </a>
+                            <a href="#" class="social-btn ig">
+                                <span class="social-btn-icon" style="color:#E1306C;"><i class="fab fa-instagram"></i></span>
+                                <div class="social-btn-text"><div class="social-btn-name">Instagram</div><div class="social-btn-handle">@bharatai2026</div></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-layout">
+                <div class="map-info reveal">
+                    <div class="map-info-eyebrow">Venue Location</div>
+                    <h2 class="map-info">Find Us at the<br>Heart of Mumbai</h2>
+                    <p>Bharat AI Innovation 2026 will be hosted at the iconic World Trade Center Mumbai — one of India's most prestigious and technically advanced event venues.</p>
+                    <div class="venue-details">
+                        <div class="venue-detail"><i class="fas fa-building"></i><span><strong>World Trade Center Mumbai</strong><br>Cuffe Parade, Mumbai</span></div>
+                        <div class="venue-detail"><i class="fas fa-subway"></i><span><strong>Nearest Station:</strong> Churchgate / CST — short drive</span></div>
+                        <div class="venue-detail"><i class="fas fa-plane"></i><span><strong>Airport:</strong> Chhatrapati Shivaji Intl. Airport — 25 min by car</span></div>
+                        <div class="venue-detail"><i class="fas fa-parking"></i><span><strong>Parking:</strong> 2,000+ spaces available underground</span></div>
+                        <div class="venue-detail"><i class="fas fa-calendar-alt"></i><span><strong>Event Dates:</strong> June 2–3, 2026 (Doors open 8:00 AM IST)</span></div>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </a>
+                </div>
+                <div class="map-frame reveal">
+                    <div class="map-placeholder">
+                        <div class="map-placeholder-inner">
+                            <div class="map-pin-icon">📍</div>
+                            <h3>World Trade Center Mumbai</h3>
+                            <p>Cuffe Parade, Mumbai</p>
+                            <a href="https://maps.google.com/?q=World+Trade+Center+Mumbai+Cuffe+Parade" target="_blank" class="btn btn-primary btn-sm">
+                                <i class="fas fa-map-marked-alt"></i> Open in Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-question-circle"></i> Quick Answers</span>
+                <h2 class="section-title">Frequently Asked <span class="accent">Questions</span></h2>
+                <p class="section-desc">Can't find what you need? Just use the form above to ask our team directly.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item reveal">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        When is the registration deadline?
+                        <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a">Early-bird pricing ends March 31, 2026. Standard registration closes May 20, 2026. On-site registration may be available subject to capacity. We strongly recommend registering early to secure your preferred package at the best price.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Can I get an invoice for my company?
+                        <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a">Yes, GST-compliant invoices are generated automatically after registration. You can also request a custom invoice for corporate billing by emailing delegate@bharataiinnovation.com with your GSTIN and company details.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        What is the cancellation/refund policy?
+                        <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a">Cancellations made 60+ days before the event receive a full refund. 30–59 days: 50% refund. Less than 30 days: no refund, but ticket transfer is permitted. If the event is cancelled, 100% refund is guaranteed.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-3">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        How do I apply to speak at the conference?
+                        <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a">Submit your speaking proposal through the Call for Papers form on our website, or email speakers@bharatai2026.in with your proposed topic, abstract, and brief bio. Our programme committee reviews all proposals on a rolling basis.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Are group discounts available?
+                        <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a">Yes! Groups of 5+ receive a 10% discount, 10+ receive 15% off, and 20+ receive 20% off. Contact delegate@bharataiinnovation.com with your group size and we'll send you a group registration code and invoice.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        What is included in the exhibition booth packages?
+                        <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a">Exhibition packages include booth space (9–36 sqm), power connections, Wi-Fi, fascia board, delegate passes, company listing in the official catalogue, and access to the pre-event exhibitor portal. Premium packages include branding on digital displays and live demo theatre slots.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:40px;width:auto;border-radius:10px;padding:5px;background:rgba(255,255,255,0.95);box-shadow:0 2px 6px rgba(0,0,0,0.08);">
+                    </div>
+                    <p class="footer-description">
+                        Advancing India's Future Through AI Innovation. Join us in creating a Viksit Bharat by 2047.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="conference.html">Conference</a></li>
+                        <li><a href="exhibition.html">Exhibition</a></li>
+                        <li><a href="register.html">Register & Delegation</a></li>
+                        <li><a href="startup-pitch.html">Startup Pitch</a></li>
+                        <li><a href="training-workshop.html">Workshops</a></li>
+                        <li><a href="partner.html">Partner</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Event Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="conference.html#schedule">Schedule</a></li>
+                        <li><a href="conference.html">Programme</a></li>
+                        <li><a href="exhibition.html">Exhibition Zones</a></li>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@bharataiinnovation.com</p>
+                        <p><i class="fas fa-phone"></i> +91 89765 80367</p>
+                        <p><i class="fas fa-map-marker-alt"></i> World Trade Center Mumbai, Cuffe Parade, Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bharat AI Innovation. All rights reserved. | Organized by Aegis Knowledge Trust</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SUCCESS TOAST -->
+    <div class="success-toast" id="successToast">
+        <div class="success-toast-icon">✅</div>
+        <div>
+            <div class="success-toast-title">Message Sent!</div>
+            <div class="success-toast-msg">Thank you! Our team will respond within 1 business day.</div>
+        </div>
+        <span class="success-toast-close" onclick="document.getElementById('successToast').classList.remove('show')"><i class="fas fa-times"></i></span>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        /* ── Contact Page JS ── */
+
+        function selectEnquiry(el, type) {
+            document.querySelectorAll('.enquiry-type').forEach(e => e.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('enquiry_type').value = type;
+        }
+
+        function toggleFaq(el) {
+            const item = el.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            let valid = true;
+
+            const validations = [
+                { id: 'c_fname', errId: 'err-cfname', check: v => v.trim().length > 0 },
+                { id: 'c_lname', errId: 'err-clname', check: v => v.trim().length > 0 },
+                { id: 'c_email', errId: 'err-cemail', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+                { id: 'c_message', errId: 'err-cmessage', check: v => v.trim().length >= 10 }
+            ];
+
+            validations.forEach(f => {
+                const el = document.getElementById(f.id);
+                const errEl = document.getElementById(f.errId);
+                if (!f.check(el.value)) {
+                    el.classList.add('error');
+                    errEl.classList.add('show');
+                    valid = false;
+                } else {
+                    el.classList.remove('error');
+                    errEl.classList.remove('show');
+                }
+                el.addEventListener('input', () => { el.classList.remove('error'); errEl.classList.remove('show'); }, { once: true });
+            });
+
+            const consent = document.getElementById('c_consent');
+            const consentErr = document.getElementById('err-cconsent');
+            if (!consent.checked) { consentErr.classList.add('show'); valid = false; }
+            else { consentErr.classList.remove('show'); }
+            consent.addEventListener('change', () => consentErr.classList.remove('show'), { once: true });
+
+            if (!valid) return;
+
+            const btn = document.getElementById('contactSubmitBtn');
+            btn.classList.add('loading');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            await new Promise(r => setTimeout(r, 1600));
+
+            // Reset form
+            document.getElementById('contactForm').reset();
+            document.querySelectorAll('.enquiry-type').forEach(e => e.classList.remove('active'));
+            document.querySelectorAll('.enquiry-type')[0].classList.add('active');
+            btn.classList.remove('loading');
+            btn.innerHTML = '<i class="fas fa-paper-plane send-icon"></i> Send Message <i class="fas fa-arrow-right"></i>';
+
+            // Show toast
+            const toast = document.getElementById('successToast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 5000);
+        });
+    </script>
+</body>
+</html>

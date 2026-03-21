@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Delegation Packages — Bharat AI Innovation 2026</title>
+    <meta name="description" content="Register for Bharat AI Innovation 2026 — June 2–3, Mumbai. Delegate, VIP, startup, academic and delegation packages available. Special group discounts up to 30% off.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ═══════════════════════════════════════════
+           REGISTER & DELEGATION — UNIFIED PAGE
+        ═══════════════════════════════════════════ */
+
+        /* --- Page Hero --- */
+        .reg-hero {
+            position: relative;
+            padding: 160px 0 80px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0D0F1A 0%, #1A1F3C 50%, #0D0F1A 100%);
+        }
+        .reg-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 70% 60% at 20% 50%, rgba(255,107,0,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 70% at 80% 30%, rgba(43,140,255,0.08) 0%, transparent 55%);
+        }
+        .reg-hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .reg-hero-content {
+            position: relative; z-index: 2;
+            text-align: center;
+        }
+        .reg-hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: rgba(255,107,0,0.12);
+            border: 1px solid rgba(255,107,0,0.25);
+            border-radius: 100px;
+            padding: 0.45rem 1.25rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #FF8C40;
+            margin-bottom: 1.5rem;
+        }
+        .reg-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+        .reg-hero h1 .accent-word {
+            background: linear-gradient(135deg, #FF7A00, #FF3D00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .reg-hero-sub {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+        .reg-hero-meta {
+            display: inline-flex; align-items: center; gap: 2rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px;
+            padding: 0.75rem 2rem;
+        }
+        .reg-hero-meta-item {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.88rem; color: rgba(255,255,255,0.75);
+            font-weight: 500;
+        }
+        .reg-hero-meta-item i { color: #FF7A00; }
+
+        /* --- Countdown Strip --- */
+        .countdown-strip {
+            background: linear-gradient(135deg, #FF7A00, #FF3D00);
+            padding: 1rem 0;
+        }
+        .countdown-inner {
+            display: flex; align-items: center; justify-content: center; gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .countdown-label {
+            font-weight: 700; font-size: 0.88rem; color: rgba(255,255,255,0.85); letter-spacing: 0.05em; text-transform: uppercase;
+        }
+        .countdown-units { display: flex; align-items: center; gap: 0.75rem; }
+        .countdown-unit {
+            text-align: center;
+            background: rgba(0,0,0,0.15);
+            border-radius: 10px;
+            padding: 0.4rem 0.75rem;
+            min-width: 52px;
+        }
+        .countdown-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem; font-weight: 900; color: white; line-height: 1;
+        }
+        .countdown-txt { font-size: 0.6rem; font-weight: 700; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; }
+        .countdown-sep { font-size: 1.4rem; font-weight: 900; color: rgba(255,255,255,0.5); line-height: 1; }
+
+        /* --- Section Navigation Tabs --- */
+        .page-tabs {
+            background: white;
+            border-bottom: 2px solid var(--light);
+            position: sticky;
+            top: 72px;
+            z-index: 90;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .page-tabs-inner {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            overflow-x: auto;
+        }
+        .page-tab {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.75rem;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.25s;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .page-tab:hover {
+            color: var(--saffron);
+            background: rgba(255,107,0,0.04);
+        }
+        .page-tab.active {
+            color: var(--saffron);
+            border-bottom-color: var(--saffron);
+        }
+        .page-tab i { font-size: 0.85rem; }
+
+        /* ── Delegation Packages Section ── */
+        .delegation-packages {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .delegation-card {
+            background: white;
+            border: 2px solid var(--light);
+            border-radius: var(--r-2xl);
+            padding: 2.5rem;
+            position: relative;
+            transition: var(--t-med);
+        }
+        .delegation-card.featured {
+            border-color: var(--saffron);
+            box-shadow: 0 0 0 4px rgba(255,107,0,0.08), var(--shadow-xl);
+            transform: scale(1.04);
+        }
+        .delegation-card:hover:not(.featured) {
+            border-color: rgba(255,107,0,0.3);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px);
+        }
+        .delegation-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--grad-saffron);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 1.2rem;
+            border-radius: var(--r-full);
+            box-shadow: var(--shadow-saffron);
+        }
+        .delegation-size {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .delegation-number {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--grad-sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        .delegation-label {
+            font-size: 0.85rem;
+            color: var(--dark-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 0.25rem;
+        }
+        .delegation-name {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .delegation-desc {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--dark-grey);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .delegation-price {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--off-white);
+            border-radius: var(--r-lg);
+            margin-bottom: 2rem;
+        }
+        .price-amount {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--charcoal);
+        }
+        .price-label {
+            font-size: 0.8rem;
+            color: var(--dark-grey);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+        .delegation-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+        .delegation-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--dark-grey);
+        }
+        .delegation-features li:last-child { border-bottom: none; }
+        .delegation-features li i {
+            color: var(--emerald);
+            font-size: 1rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        /* Custom Package */
+        .custom-package {
+            background: var(--grad-hero);
+            border-radius: var(--r-2xl);
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+        .custom-package::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .custom-package-content { position: relative; z-index: 1; }
+        .custom-package h3 {
+            font-family: var(--font-display);
+            font-size: 2rem; font-weight: 800; color: white; margin-bottom: 1rem;
+        }
+        .custom-package p {
+            font-size: 1.1rem; color: rgba(255,255,255,0.8); margin-bottom: 2rem;
+            max-width: 600px; margin-left: auto; margin-right: auto;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .benefit-card {
+            background: white;
+            border: 1px solid var(--light);
+            border-radius: var(--r-xl);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: var(--t-med);
+        }
+        .benefit-card:hover {
+            border-color: rgba(255,107,0,0.25);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        .benefit-icon {
+            width: 64px; height: 64px;
+            background: var(--grad-saffron);
+            border-radius: var(--r-lg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin: 0 auto 1rem;
+            box-shadow: var(--shadow-saffron);
+        }
+        .benefit-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.5rem; }
+        .benefit-card p { font-size: 0.9rem; color: var(--dark-grey); margin: 0; line-height: 1.6; }
+
+        /* Pass Comparison Table */
+        .pass-comparison-wrapper { margin-top: 2rem; overflow-x: auto; }
+        .pass-comparison-table {
+            width: 100%; border-collapse: collapse; background: white;
+            border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-md);
+        }
+        .pass-comparison-table thead { background: var(--grad-hero); }
+        .pass-comparison-table thead th {
+            color: white; font-family: var(--font-display);
+            font-size: 0.95rem; font-weight: 800; padding: 1.25rem 0.75rem; text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        .pass-comparison-table thead th:first-child { text-align: left; padding-left: 2rem; }
+        .pass-comparison-table thead th:last-child { border-right: none; }
+        .pass-comparison-table tbody tr { border-bottom: 1px solid var(--light); transition: var(--t-fast); }
+        .pass-comparison-table tbody tr:hover { background: var(--off-white); }
+        .pass-comparison-table tbody tr:last-child { border-bottom: none; }
+        .pass-comparison-table tbody td {
+            padding: 1rem 0.75rem; text-align: center; font-size: 0.88rem;
+            color: var(--dark-grey); border-right: 1px solid var(--light);
+        }
+        .pass-comparison-table tbody td:first-child {
+            text-align: left; padding-left: 2rem; font-weight: 600; color: var(--charcoal);
+        }
+        .pass-comparison-table tbody td:last-child { border-right: none; }
+        .pass-comparison-table .check-yes { color: var(--emerald); font-size: 1.2rem; }
+        .pass-comparison-table .check-no { color: #ccc; font-size: 1.2rem; }
+        .pass-comparison-table .feature-highlight { background: rgba(255,107,0,0.05); }
+        .pass-comparison-table .table-price-row { background: rgba(255,107,0,0.08); font-weight: 700; }
+        .pass-comparison-table .table-price-row td {
+            font-family: var(--font-display); font-size: 0.95rem; padding: 1.25rem 0.75rem; color: var(--charcoal);
+        }
+        .pass-comparison-table .price-free { color: var(--emerald); }
+        .pass-comparison-table .price-standard { color: var(--indigo); }
+        .pass-comparison-table .price-vip {
+            background: var(--grad-sunset);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        /* Why Delegation */
+        .why-delegation-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem;
+        }
+        .why-item {
+            background: white; border: 1px solid var(--light); border-radius: var(--r-xl);
+            padding: 2rem; display: flex; gap: 1.5rem; transition: var(--t-med);
+        }
+        .why-item:hover {
+            border-color: rgba(255,107,0,0.2); box-shadow: var(--shadow-sm); transform: translateX(4px);
+        }
+        .why-number {
+            font-family: var(--font-display); font-size: 2.5rem; font-weight: 900;
+            background: var(--grad-sunset); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; line-height: 1; min-width: 50px;
+        }
+        .why-item h4 { font-size: 1.1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.5rem; }
+        .why-item p { font-size: 0.9rem; color: var(--dark-grey); margin: 0; line-height: 1.6; }
+
+        /* --- Main Registration Layout --- */
+        .reg-section { padding: 80px 0 100px; background: var(--off-white); }
+        .reg-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        /* --- Step Indicator --- */
+        .step-indicator {
+            display: flex; align-items: center; gap: 0; margin-bottom: 2.5rem;
+        }
+        .step-item {
+            display: flex; align-items: center; gap: 0.6rem; flex: 1; position: relative;
+        }
+        .step-item::after {
+            content: ''; flex: 1; height: 2px; background: var(--light); margin: 0 0.5rem;
+        }
+        .step-item:last-child::after { display: none; }
+        .step-item.active::after { background: linear-gradient(90deg, var(--saffron), var(--light)); }
+        .step-num {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem; font-weight: 800; flex-shrink: 0; transition: all 0.3s;
+        }
+        .step-item.done .step-num { background: #10B981; color: white; }
+        .step-item.active .step-num { background: var(--grad-saffron); color: white; box-shadow: 0 0 0 4px rgba(255,107,0,0.2); }
+        .step-item.pending .step-num { background: var(--light); color: var(--mid-grey); border: 2px solid var(--light); }
+        .step-label { font-size: 0.78rem; font-weight: 700; color: var(--mid-grey); white-space: nowrap; display: none; }
+        .step-item.active .step-label { color: var(--saffron); display: block; }
+        @media (min-width: 600px) { .step-label { display: block; } }
+
+        /* --- Package Cards --- */
+        .pkg-heading { font-size: 1.6rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.4rem; }
+        .pkg-sub { font-size: 0.92rem; color: var(--dark-grey); margin-bottom: 2rem; }
+        .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+        @media (max-width: 960px) { .pkg-grid { grid-template-columns: repeat(2, 1fr); } }
+        .pkg-card-price.pkg-price-free { background: linear-gradient(135deg, #10B981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .pkg-card-price.pkg-price-invite { background: linear-gradient(135deg, #6366F1, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.3rem; }
+        .pkg-card {
+            position: relative; background: white; border: 2px solid var(--light);
+            border-radius: 20px; padding: 1.5rem; cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden;
+        }
+        .pkg-card::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,107,0,0.03), transparent);
+            opacity: 0; transition: opacity 0.25s;
+        }
+        .pkg-card:hover { border-color: rgba(255,107,0,0.3); box-shadow: 0 8px 30px rgba(255,107,0,0.1); transform: translateY(-3px); }
+        .pkg-card:hover::before { opacity: 1; }
+        .pkg-card.selected {
+            border-color: var(--saffron);
+            box-shadow: 0 0 0 4px rgba(255,107,0,0.12), 0 12px 40px rgba(255,107,0,0.15);
+            transform: translateY(-4px);
+        }
+        .pkg-card.selected::before { opacity: 1; }
+        .pkg-card.featured-pkg { border-color: var(--saffron); background: linear-gradient(135deg, #FFF8F3 0%, white 100%); }
+        .pkg-popular-tag {
+            position: absolute; top: -1px; right: 16px;
+            background: linear-gradient(135deg, #FF7A00, #FF3D00);
+            color: white; font-size: 0.62rem; font-weight: 800;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 0.25rem 0.75rem; border-radius: 0 0 8px 8px;
+        }
+        .pkg-icon-wrap {
+            width: 44px; height: 44px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; margin-bottom: 0.85rem;
+        }
+        .pkg-card-name { font-size: 1rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.2rem; }
+        .pkg-card-price {
+            font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 900;
+            background: linear-gradient(135deg, #FF7A00, #FF3D00);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            line-height: 1; margin-bottom: 0.15rem;
+        }
+        .pkg-card-inc { font-size: 0.72rem; color: var(--mid-grey); font-weight: 500; margin-bottom: 0.75rem; }
+        .pkg-card-features { list-style: none; padding: 0; margin: 0; }
+        .pkg-card-features li {
+            font-size: 0.78rem; color: var(--dark-grey);
+            display: flex; align-items: flex-start; gap: 0.4rem; margin-bottom: 0.3rem;
+        }
+        .pkg-card-features li::before { content: '✓'; color: #10B981; font-weight: 800; flex-shrink: 0; }
+        .pkg-radio { display: none; }
+        .pkg-check-ring {
+            position: absolute; top: 1rem; right: 1rem;
+            width: 22px; height: 22px; border-radius: 50%;
+            border: 2px solid var(--light);
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; background: white;
+        }
+        .pkg-card.selected .pkg-check-ring { border-color: var(--saffron); background: var(--saffron); }
+        .pkg-card.selected .pkg-check-ring::after { content: '✓'; color: white; font-size: 0.65rem; font-weight: 900; }
+
+        /* --- Form Section --- */
+        .form-panel {
+            background: white; border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 24px; padding: 2.5rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06); margin-top: 1.5rem;
+        }
+        .form-panel-title {
+            font-size: 1.25rem; font-weight: 800; color: var(--charcoal);
+            margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.6rem;
+        }
+        .form-panel-title-icon {
+            width: 32px; height: 32px; border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255,107,0,0.1), rgba(255,61,0,0.1));
+            display: flex; align-items: center; justify-content: center;
+            color: var(--saffron); font-size: 0.9rem;
+        }
+        .form-panel-sub { font-size: 0.85rem; color: var(--dark-grey); margin-bottom: 1.75rem; }
+        .form-divider {
+            font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--saffron); padding: 0.5rem 0; margin: 1.5rem 0 1.2rem;
+            border-bottom: 1px dashed rgba(255,107,0,0.2);
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .form-divider i { font-size: 0.75rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label {
+            display: block; font-size: 0.78rem; font-weight: 700; color: var(--charcoal);
+            margin-bottom: 0.4rem; letter-spacing: 0.02em;
+        }
+        .form-group label .req { color: var(--saffron); margin-left: 2px; }
+        .form-control {
+            width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #E5E8EF;
+            border-radius: 12px; font-family: 'Inter', sans-serif;
+            font-size: 0.9rem; color: var(--charcoal); background: #FAFBFC;
+            transition: all 0.2s; outline: none; box-sizing: border-box;
+        }
+        .form-control:focus { border-color: var(--saffron); background: white; box-shadow: 0 0 0 4px rgba(255,107,0,0.08); }
+        .form-control::placeholder { color: #B0B8C8; }
+        .form-control.has-error { border-color: #EF4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
+        .field-error { font-size: 0.75rem; color: #EF4444; margin-top: 0.3rem; display: none; }
+        .field-error.show { display: block; }
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234A5280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 1rem center;
+            background-size: 16px; padding-right: 2.5rem; cursor: pointer;
+        }
+        textarea.form-control { resize: vertical; min-height: 90px; }
+
+        /* Checkbox */
+        .check-group { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; }
+        .custom-check { position: relative; width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
+        .custom-check input { opacity: 0; position: absolute; width: 0; height: 0; }
+        .custom-check-box {
+            position: absolute; inset: 0; border: 2px solid #CBD5E0; border-radius: 5px;
+            background: white; transition: all 0.2s; display: flex; align-items: center; justify-content: center; cursor: pointer;
+        }
+        .custom-check input:checked ~ .custom-check-box { background: var(--saffron); border-color: var(--saffron); }
+        .custom-check input:checked ~ .custom-check-box::after { content: '✓'; color: white; font-size: 0.7rem; font-weight: 900; }
+        .check-label { font-size: 0.85rem; color: var(--dark-grey); line-height: 1.55; cursor: pointer; }
+        .check-label a { color: var(--saffron); font-weight: 600; }
+        .check-label a:hover { text-decoration: underline; }
+
+        /* Interest tags */
+        .interest-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
+        .interest-tag {
+            display: flex; align-items: center; gap: 0.35rem;
+            padding: 0.35rem 0.85rem; border: 1.5px solid #E5E8EF; border-radius: 100px;
+            font-size: 0.78rem; font-weight: 600; color: var(--dark-grey);
+            cursor: pointer; transition: all 0.2s; background: white; user-select: none;
+        }
+        .interest-tag:hover { border-color: rgba(255,107,0,0.35); color: var(--saffron); }
+        .interest-tag.selected { border-color: var(--saffron); background: rgba(255,107,0,0.06); color: var(--saffron); }
+        .interest-tag i { font-size: 0.7rem; }
+        .interest-tag-hint { font-size: 0.75rem; color: var(--mid-grey); margin-bottom: 0.6rem; }
+
+        /* Submit button */
+        .reg-submit-btn {
+            width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #FF7A00 0%, #FF3D00 100%);
+            color: white; border: none; border-radius: 14px;
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 800;
+            cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(255,107,0,0.3); margin-top: 0.5rem;
+        }
+        .reg-submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,107,0,0.45); }
+        .reg-submit-btn:active { transform: translateY(0); }
+        .reg-submit-btn .btn-icon { font-size: 1rem; transition: transform 0.3s; }
+        .reg-submit-btn:hover .btn-icon { transform: translateX(4px); }
+        .reg-submit-btn.loading { opacity: 0.85; pointer-events: none; }
+
+        /* --- Summary Sidebar --- */
+        .reg-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+        .summary-glass {
+            background: linear-gradient(135deg, #0D0F1A 0%, #1A1F3C 100%);
+            border-radius: 24px; padding: 2rem; position: sticky; top: 130px; overflow: hidden;
+        }
+        .summary-glass::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px; border-radius: 24px;
+        }
+        .summary-glass-inner { position: relative; z-index: 1; }
+        .summary-glass-title {
+            font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 800; color: white;
+            margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem;
+        }
+        .summary-glass-title i { color: #FF7A00; }
+        .summary-pkg-display {
+            background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.2);
+            border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;
+        }
+        .summary-pkg-name { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+        .summary-pkg-title { font-size: 1.1rem; font-weight: 800; color: white; }
+        .summary-item-row {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .summary-item-row:last-child { border-bottom: none; }
+        .summary-item-icon {
+            width: 34px; height: 34px; border-radius: 8px;
+            background: rgba(255,255,255,0.07);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem; color: rgba(255,255,255,0.6); flex-shrink: 0;
+        }
+        .summary-item-text { font-size: 0.84rem; color: rgba(255,255,255,0.6); line-height: 1.4; }
+        .summary-item-text strong { color: white; font-weight: 700; display: block; font-size: 0.88rem; }
+        .summary-price-section { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); }
+        .sidebar-price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .sidebar-price-row-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+        .sidebar-price-row-val { font-size: 0.9rem; color: rgba(255,255,255,0.8); font-weight: 600; }
+        .sidebar-price-row-val.discount { color: #10B981; }
+        .price-total-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 0.75rem; margin-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.12);
+        }
+        .price-total-label { font-size: 1rem; font-weight: 800; color: white; }
+        .price-total-val {
+            font-family: 'Montserrat', sans-serif; font-size: 1.75rem; font-weight: 900;
+            background: linear-gradient(135deg, #FFB300, #FF7A00);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .early-bird-banner {
+            margin-top: 1.25rem; background: rgba(255,179,0,0.1);
+            border: 1px solid rgba(255,179,0,0.25); border-radius: 12px;
+            padding: 0.85rem 1rem; display: flex; align-items: center; gap: 0.65rem;
+        }
+        .early-bird-banner i { color: #FFB300; font-size: 1rem; flex-shrink: 0; }
+        .early-bird-banner p { font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0; }
+        .early-bird-banner p strong { color: #FFB300; }
+        .trust-list { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+        .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.45); }
+        .trust-item i { color: rgba(255,107,0,0.7); font-size: 0.8rem; }
+
+        /* Help card */
+        .help-card {
+            background: white; border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 20px; padding: 1.5rem; box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+        }
+        .help-card-title { font-size: 0.95rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.75rem; }
+        .help-item {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.7rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .help-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .help-icon {
+            width: 38px; height: 38px; border-radius: 10px;
+            background: rgba(255,107,0,0.08);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--saffron); font-size: 0.9rem; flex-shrink: 0;
+        }
+        .help-text-label { font-size: 0.75rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.1rem; }
+        .help-text-val { font-size: 0.8rem; color: var(--dark-grey); }
+        .help-text-val a { color: var(--saffron); font-weight: 600; }
+
+        /* Success screen */
+        .success-overlay {
+            display: none; position: fixed; inset: 0; z-index: 9999;
+            background: rgba(13,15,26,0.8); backdrop-filter: blur(8px);
+            align-items: center; justify-content: center;
+        }
+        .success-overlay.show { display: flex; }
+        .success-box {
+            background: white; border-radius: 28px; padding: 3rem 2.5rem;
+            text-align: center; max-width: 480px; width: 90%;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+            animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes successPop {
+            from { transform: scale(0.7); opacity: 0; }
+            to   { transform: scale(1);   opacity: 1; }
+        }
+        .success-anim {
+            width: 90px; height: 90px; border-radius: 50%;
+            background: linear-gradient(135deg, #10B981, #059669);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 40px rgba(16,185,129,0.4);
+            animation: successPulse 1.5s ease-in-out infinite;
+        }
+        @keyframes successPulse {
+            0%,100% { box-shadow: 0 10px 40px rgba(16,185,129,0.4); }
+            50%      { box-shadow: 0 10px 60px rgba(16,185,129,0.6); }
+        }
+        .success-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; font-weight: 900; color: #0D0F1A; margin-bottom: 0.6rem; }
+        .success-box p { font-size: 0.95rem; color: #6B7280; line-height: 1.7; margin-bottom: 1.5rem; }
+        .success-ref { background: #F3F4F6; border-radius: 10px; padding: 0.75rem 1.25rem; font-size: 0.85rem; color: #374151; margin-bottom: 1.75rem; }
+        .success-ref strong { color: #0D0F1A; }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem;
+        }
+        .process-step { text-align: center; position: relative; }
+        .process-step::after {
+            content: '→'; position: absolute; right: -1.2rem; top: 30px;
+            font-size: 1.5rem; color: var(--saffron); font-weight: 700;
+        }
+        .process-step:last-child::after { display: none; }
+        .booking-step-number {
+            width: 60px; height: 60px; background: var(--grad-saffron); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-size: 1.6rem; font-weight: 900;
+            color: white; margin: 0 auto 1rem; box-shadow: var(--shadow-saffron);
+        }
+        .process-step h4 { font-size: 0.95rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.5rem; }
+        .process-step p { font-size: 0.85rem; color: var(--dark-grey); margin: 0; line-height: 1.5; }
+
+        @media (max-width: 1024px) {
+            .reg-layout { grid-template-columns: 1fr; }
+            .summary-glass { position: static; }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .delegation-packages { grid-template-columns: 1fr; }
+            .why-delegation-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .process-step::after { display: none; }
+            .delegation-card.featured { transform: none; }
+            .pass-comparison-table thead th,
+            .pass-comparison-table tbody td { padding: 1rem 0.5rem; font-size: 0.85rem; }
+            .pass-comparison-table thead th:first-child,
+            .pass-comparison-table tbody td:first-child { padding-left: 1rem; }
+            .pass-comparison-table .table-price-row td { font-size: 0.95rem; padding: 1.25rem 0.5rem; }
+        }
+        @media (max-width: 768px) {
+            .benefits-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .page-tab { padding: 0.85rem 1.25rem; font-size: 0.8rem; }
+            .pass-comparison-table { font-size: 0.8rem; }
+            .pass-comparison-table thead th { font-size: 0.9rem; padding: 0.75rem 0.35rem; }
+            .pass-comparison-table tbody td { padding: 0.75rem 0.35rem; }
+            .pass-comparison-table thead th:first-child,
+            .pass-comparison-table tbody td:first-child { padding-left: 0.5rem; }
+            .pass-comparison-table .table-price-row td { font-size: 0.85rem; padding: 1rem 0.35rem; }
+        }
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .pkg-grid { grid-template-columns: 1fr !important; }
+            .reg-hero-meta { flex-direction: column; gap: 0.75rem; padding: 1rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:44px;width:auto;border-radius:12px;padding:6px;background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="conference.html" class="nav-link">Conference</a>
+                <a href="exhibition.html" class="nav-link">Exhibition</a>
+                <a href="startup-pitch.html" class="nav-link">Startup Pitch</a>
+                <a href="training-workshop.html" class="nav-link">Workshops</a>
+                <a href="partner.html" class="nav-link">Partner</a>
+                <a href="accommodation.html" class="nav-link">Accommodation</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="register.html" class="nav-cta active-cta">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="reg-hero">
+        <div class="reg-hero-grid"></div>
+        <div class="container reg-hero-content">
+            <div class="reg-hero-eyebrow reveal">
+                <i class="fas fa-ticket-alt"></i> Secure Your Seat
+            </div>
+            <h1 class="reveal">Register for<br><span class="accent-word">Bharat AI Innovation</span> 2026</h1>
+            <p class="reg-hero-sub reveal">Join AI leaders, innovators & decision-makers shaping the future of intelligent technology across India and Asia. Individual & delegation packages available.</p>
+            <div class="reg-hero-meta reveal">
+                <div class="reg-hero-meta-item"><i class="fas fa-calendar-alt"></i> June 2–3, 2026</div>
+                <div class="reg-hero-meta-item"><i class="fas fa-map-marker-alt"></i> World Trade Center Mumbai, Cuffe Parade</div>
+                <div class="reg-hero-meta-item"><i class="fas fa-users"></i> AI Leaders & Innovators</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN STRIP -->
+    <div class="countdown-strip">
+        <div class="container countdown-inner">
+            <span class="countdown-label"><i class="fas fa-fire"></i> &nbsp;Early-Bird Ends In:</span>
+            <div class="countdown-units">
+                <div class="countdown-unit"><div class="countdown-num" id="cd-days">--</div><div class="countdown-txt">Days</div></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit"><div class="countdown-num" id="cd-hrs">--</div><div class="countdown-txt">Hrs</div></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit"><div class="countdown-num" id="cd-min">--</div><div class="countdown-txt">Min</div></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit"><div class="countdown-num" id="cd-sec">--</div><div class="countdown-txt">Sec</div></div>
+            </div>
+            <span style="font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.9);">Save up to 40% — Limited seats!</span>
+        </div>
+    </div>
+
+    <!-- SECTION TABS -->
+    <div class="page-tabs" id="pageTabs">
+        <div class="container">
+            <div class="page-tabs-inner">
+                <a class="page-tab active" href="#register-section" data-section="register-section"><i class="fas fa-ticket-alt"></i> Register Now</a>
+                <a class="page-tab" href="#delegation-section" data-section="delegation-section"><i class="fas fa-users"></i> Delegation Packages</a>
+                <a class="page-tab" href="#comparison-section" data-section="comparison-section"><i class="fas fa-id-badge"></i> Pass Comparison</a>
+                <a class="page-tab" href="#benefits-section" data-section="benefits-section"><i class="fas fa-gift"></i> Benefits</a>
+                <a class="page-tab" href="#why-section" data-section="why-section"><i class="fas fa-lightbulb"></i> Why Attend</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 1: REGISTRATION FORM
+    ═══════════════════════════════════════════ -->
+    <section class="reg-section" id="register-section">
+        <div class="container">
+            <div class="reg-layout">
+
+                <!-- LEFT: Form -->
+                <div>
+                    <!-- Step indicator -->
+                    <div class="step-indicator">
+                        <div class="step-item active" id="step-1-indicator">
+                            <div class="step-num">1</div>
+                            <span class="step-label">Choose Package</span>
+                            <div style="flex:1;height:2px;background:linear-gradient(90deg,var(--saffron),#E5E8EF);margin:0 0.5rem;"></div>
+                        </div>
+                        <div class="step-item pending" id="step-2-indicator">
+                            <div class="step-num">2</div>
+                            <span class="step-label">Your Details</span>
+                            <div style="flex:1;height:2px;background:#E5E8EF;margin:0 0.5rem;"></div>
+                        </div>
+                        <div class="step-item pending" id="step-3-indicator">
+                            <div class="step-num">3</div>
+                            <span class="step-label">Confirm</span>
+                        </div>
+                    </div>
+
+                    <!-- STEP 1: Package Selection -->
+                    <div id="step-1" class="pkg-step">
+                        <h2 class="pkg-heading">Choose Your Pass</h2>
+                        <p class="pkg-sub">Select the registration package that best fits your goals at Bharat AI Innovation 2026</p>
+
+                        <div class="pkg-grid">
+                            <!-- Delegate -->
+                            <label class="pkg-card featured-pkg selected" for="pkg-delegate">
+                                <div class="pkg-popular-tag">Most Popular</div>
+                                <input type="radio" name="package" id="pkg-delegate" value="delegate" class="pkg-radio" checked>
+                                <div class="pkg-check-ring"></div>
+                                <div class="pkg-icon-wrap" style="background:linear-gradient(135deg,rgba(255,107,0,0.1),rgba(255,61,0,0.1));">🎟️</div>
+                                <div class="pkg-card-name">Delegate Pass</div>
+                                <div class="pkg-card-price">₹4,999<span style="font-family:Inter;font-size:0.75rem;font-weight:500;color:var(--mid-grey);-webkit-text-fill-color:var(--mid-grey);">/person</span></div>
+                                <div class="pkg-card-inc">Early Bird — Save 40%</div>
+                                <ul class="pkg-card-features">
+                                    <li>Full 2-day conference access</li>
+                                    <li>Exhibition floor pass</li>
+                                    <li>Conference materials & kit</li>
+                                    <li>Networking events</li>
+                                    <li>Digital recordings</li>
+                                </ul>
+                            </label>
+
+                            <!-- VIP -->
+                            <label class="pkg-card" for="pkg-vip">
+                                <input type="radio" name="package" id="pkg-vip" value="vip" class="pkg-radio">
+                                <div class="pkg-check-ring"></div>
+                                <div class="pkg-icon-wrap" style="background:linear-gradient(135deg,rgba(255,179,0,0.15),rgba(255,107,0,0.1));">⭐</div>
+                                <div class="pkg-card-name">VIP Pass</div>
+                                <div class="pkg-card-price">₹14,999<span style="font-family:Inter;font-size:0.75rem;font-weight:500;color:var(--mid-grey);-webkit-text-fill-color:var(--mid-grey);">/person</span></div>
+                                <div class="pkg-card-inc">Early Bird — Save 35%</div>
+                                <ul class="pkg-card-features">
+                                    <li>Everything in Delegate</li>
+                                    <li>VIP lounge access</li>
+                                    <li>Speaker meet & greet</li>
+                                    <li>Priority front-row seating</li>
+                                    <li>Exclusive VIP dinner</li>
+                                </ul>
+                            </label>
+
+                            <!-- Academic -->
+                            <label class="pkg-card" for="pkg-academic">
+                                <input type="radio" name="package" id="pkg-academic" value="academic" class="pkg-radio">
+                                <div class="pkg-check-ring"></div>
+                                <div class="pkg-icon-wrap" style="background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(5,150,105,0.08));">🎓</div>
+                                <div class="pkg-card-name">Academic Pass</div>
+                                <div class="pkg-card-price">₹999<span style="font-family:Inter;font-size:0.75rem;font-weight:500;color:var(--mid-grey);-webkit-text-fill-color:var(--mid-grey);">/person</span></div>
+                                <div class="pkg-card-inc">Students & researchers</div>
+                                <ul class="pkg-card-features">
+                                    <li>Full conference access</li>
+                                    <li>Exhibition floor pass</li>
+                                    <li>Hackathon participation</li>
+                                    <li>Student networking zone</li>
+                                </ul>
+                            </label>
+
+                            <!-- Media -->
+                            <label class="pkg-card" for="pkg-media">
+                                <input type="radio" name="package" id="pkg-media" value="media" class="pkg-radio">
+                                <div class="pkg-check-ring"></div>
+                                <div class="pkg-icon-wrap" style="background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(139,92,246,0.08));">📰</div>
+                                <div class="pkg-card-name">Media Pass</div>
+                                <div class="pkg-card-price pkg-price-invite">By Invite</div>
+                                <div class="pkg-card-inc">Journalists & media partners</div>
+                                <ul class="pkg-card-features">
+                                    <li>Full conference access</li>
+                                    <li>Exhibition floor pass</li>
+                                    <li>Press/media area access</li>
+                                    <li>Interview & recording rights</li>
+                                    <li>Speaker meet & greet</li>
+                                </ul>
+                            </label>
+
+                            <!-- Visitor -->
+                            <label class="pkg-card" for="pkg-visitor">
+                                <input type="radio" name="package" id="pkg-visitor" value="visitor" class="pkg-radio">
+                                <div class="pkg-check-ring"></div>
+                                <div class="pkg-icon-wrap" style="background:linear-gradient(135deg,rgba(59,130,246,0.1),rgba(37,99,235,0.08));">🎫</div>
+                                <div class="pkg-card-name">Visitor Pass</div>
+                                <div class="pkg-card-price pkg-price-free">FREE</div>
+                                <div class="pkg-card-inc">Open to all</div>
+                                <ul class="pkg-card-features">
+                                    <li>Exhibition floor access</li>
+                                    <li>Keynote sessions</li>
+                                    <li>Networking lounge</li>
+                                    <li>AI live demos</li>
+                                </ul>
+                            </label>
+                        </div>
+
+                        <!-- Delegation Upsell Banner -->
+                        <div style="background:linear-gradient(135deg,#FFF7ED,#FFF1E0);border:1.5px solid rgba(255,107,0,0.2);border-radius:16px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;margin-top:0.5rem;margin-bottom:1rem;">
+                            <div style="font-size:2rem;">👥</div>
+                            <div style="flex:1;">
+                                <div style="font-weight:800;font-size:0.88rem;color:var(--charcoal);margin-bottom:0.15rem;">Bringing a team? Save up to 30%!</div>
+                                <div style="font-size:0.82rem;color:var(--dark-grey);">Check our <a href="#delegation-section" style="color:var(--saffron);font-weight:700;text-decoration:underline;">Delegation Packages</a> for group discounts on 5+ registrations.</div>
+                            </div>
+                        </div>
+
+                        <button class="reg-submit-btn" onclick="goToStep2()" style="margin-top:0.5rem;">
+                            Continue with Selected Pass <i class="fas fa-arrow-right btn-icon"></i>
+                        </button>
+                    </div>
+
+                    <!-- STEP 2: Details -->
+                    <div id="step-2" style="display:none;">
+                        <div class="form-panel">
+                            <div class="form-panel-title">
+                                <div class="form-panel-title-icon"><i class="fas fa-user"></i></div>
+                                Personal Information
+                            </div>
+                            <p class="form-panel-sub">Please fill in your details accurately as they will appear on your badge and tickets.</p>
+
+                            <form id="regForm" novalidate>
+                                <div class="form-divider"><i class="fas fa-id-card"></i> Identity</div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="r_fname">First Name <span class="req">*</span></label>
+                                        <input type="text" id="r_fname" class="form-control" placeholder="Rahul" required>
+                                        <div class="field-error" id="err-fname">Please enter your first name.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="r_lname">Last Name <span class="req">*</span></label>
+                                        <input type="text" id="r_lname" class="form-control" placeholder="Sharma" required>
+                                        <div class="field-error" id="err-lname">Please enter your last name.</div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="r_email">Email Address <span class="req">*</span></label>
+                                        <input type="email" id="r_email" class="form-control" placeholder="rahul@company.com" required>
+                                        <div class="field-error" id="err-email">Please enter a valid email address.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="r_phone">Phone Number <span class="req">*</span></label>
+                                        <input type="tel" id="r_phone" class="form-control" placeholder="+91 98765 43210" required>
+                                        <div class="field-error" id="err-phone">Please enter a valid phone number.</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-divider"><i class="fas fa-briefcase"></i> Professional Details</div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="r_org">Organisation / Company <span class="req">*</span></label>
+                                        <input type="text" id="r_org" class="form-control" placeholder="Tech Corp India" required>
+                                        <div class="field-error" id="err-org">Please enter your organisation name.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="r_title">Job Title</label>
+                                        <input type="text" id="r_title" class="form-control" placeholder="Chief AI Officer">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="r_industry">Industry <span class="req">*</span></label>
+                                        <select id="r_industry" class="form-control" required>
+                                            <option value="">Select your industry</option>
+                                            <option>Technology & Software</option>
+                                            <option>Financial Services & Fintech</option>
+                                            <option>Healthcare & Pharma</option>
+                                            <option>Manufacturing & Industry 4.0</option>
+                                            <option>Agriculture & AgriTech</option>
+                                            <option>Government & Public Sector</option>
+                                            <option>Education & EdTech</option>
+                                            <option>Media & Entertainment</option>
+                                            <option>Retail & E-commerce</option>
+                                            <option>Consulting & Services</option>
+                                            <option>Research & Academia</option>
+                                            <option>Other</option>
+                                        </select>
+                                        <div class="field-error" id="err-industry">Please select your industry.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="r_size">Company Size</label>
+                                        <select id="r_size" class="form-control">
+                                            <option value="">Select company size</option>
+                                            <option>1–10 employees</option>
+                                            <option>11–50 employees</option>
+                                            <option>51–200 employees</option>
+                                            <option>201–1,000 employees</option>
+                                            <option>1,000+ employees</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-divider"><i class="fas fa-map-marker-alt"></i> Location</div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="r_city">City</label>
+                                        <input type="text" id="r_city" class="form-control" placeholder="Mumbai">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="r_country">Country</label>
+                                        <select id="r_country" class="form-control">
+                                            <option value="">Select country</option>
+                                            <option selected>India</option>
+                                            <option>United States</option>
+                                            <option>United Kingdom</option>
+                                            <option>Singapore</option>
+                                            <option>UAE</option>
+                                            <option>Germany</option>
+                                            <option>Canada</option>
+                                            <option>Australia</option>
+                                            <option>Japan</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-divider"><i class="fas fa-star"></i> Preferences</div>
+                                <div class="form-group">
+                                    <div class="interest-tag-hint">Select topics you're most interested in (optional):</div>
+                                    <div class="interest-tags">
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-robot"></i> GenAI & LLMs</div>
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-shield-alt"></i> AI Governance</div>
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-industry"></i> AI in Manufacturing</div>
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-heartbeat"></i> AI in Healthcare</div>
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-coins"></i> AI in Finance</div>
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-seedling"></i> AI in Agriculture</div>
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-eye"></i> Computer Vision</div>
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-comments"></i> NLP</div>
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-rocket"></i> AI Startups</div>
+                                        <div class="interest-tag" onclick="toggleInterest(this)"><i class="fas fa-graduation-cap"></i> AI Education</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="r_source">How did you hear about us?</label>
+                                    <select id="r_source" class="form-control">
+                                        <option value="">Select source</option>
+                                        <option>LinkedIn</option>
+                                        <option>Twitter / X</option>
+                                        <option>Google Search</option>
+                                        <option>Colleague / Word of Mouth</option>
+                                        <option>Email Newsletter</option>
+                                        <option>News Article</option>
+                                        <option>Previous Event</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="r_special">Dietary / Accessibility Requirements</label>
+                                    <input type="text" id="r_special" class="form-control" placeholder="e.g. Vegetarian, Wheelchair access, etc.">
+                                </div>
+
+                                <div class="check-group" style="margin-bottom:0.75rem;">
+                                    <label class="custom-check">
+                                        <input type="checkbox" id="r_newsletter">
+                                        <span class="custom-check-box"></span>
+                                    </label>
+                                    <label for="r_newsletter" class="check-label">Subscribe to Bharat AI Innovation newsletter for updates, speaker announcements & AI insights.</label>
+                                </div>
+                                <div class="check-group" style="margin-bottom:1.25rem;">
+                                    <label class="custom-check">
+                                        <input type="checkbox" id="r_terms" required>
+                                        <span class="custom-check-box"></span>
+                                    </label>
+                                    <label for="r_terms" class="check-label">
+                                        I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>. I understand cancellation is subject to the refund policy. <span class="req">*</span>
+                                    </label>
+                                </div>
+                                <div class="field-error" id="err-terms" style="margin-top:-1rem;margin-bottom:1rem;">You must accept the terms to proceed.</div>
+
+                                <div style="display:flex;gap:1rem;">
+                                    <button type="button" class="btn btn-outline" onclick="goToStep1()" style="flex:0 0 auto;padding:0.9rem 1.5rem;">
+                                        <i class="fas fa-arrow-left"></i> Back
+                                    </button>
+                                    <button type="submit" class="reg-submit-btn" id="regSubmitBtn">
+                                        <i class="fas fa-lock"></i> Complete Registration <i class="fas fa-arrow-right btn-icon"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Sidebar -->
+                <div class="reg-sidebar">
+                    <!-- Summary -->
+                    <div class="summary-glass reveal">
+                        <div class="summary-glass-inner">
+                            <div class="summary-glass-title"><i class="fas fa-receipt"></i> Order Summary</div>
+                            <div class="summary-pkg-display">
+                                <div class="summary-pkg-name">Selected Pass</div>
+                                <div class="summary-pkg-title" id="sidebar-pkg-name">Delegate Pass</div>
+                            </div>
+                            <div class="summary-item-row">
+                                <div class="summary-item-icon"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="summary-item-text"><strong>June 2–3, 2026</strong>2-day full access</div>
+                            </div>
+                            <div class="summary-item-row">
+                                <div class="summary-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="summary-item-text"><strong>World Trade Center Mumbai</strong>Cuffe Parade, Mumbai</div>
+                            </div>
+                            <div class="summary-item-row">
+                                <div class="summary-item-icon"><i class="fas fa-wifi"></i></div>
+                                <div class="summary-item-text"><strong>Free Wi-Fi + Meals Included</strong>All sessions in English & Hindi</div>
+                            </div>
+                            <div class="summary-price-section">
+                                <div class="sidebar-price-row">
+                                    <span class="sidebar-price-row-label">Original Price</span>
+                                    <span class="sidebar-price-row-val" style="text-decoration:line-through;opacity:0.5;" id="sidebar-original">₹8,299</span>
+                                </div>
+                                <div class="sidebar-price-row">
+                                    <span class="sidebar-price-row-label">Early Bird Discount</span>
+                                    <span class="sidebar-price-row-val discount" id="sidebar-discount">– ₹3,300</span>
+                                </div>
+                                <div class="price-total-row">
+                                    <span class="price-total-label">You Pay</span>
+                                    <span class="price-total-val" id="sidebar-price">₹4,999</span>
+                                </div>
+                            </div>
+                            <div class="early-bird-banner">
+                                <i class="fas fa-fire"></i>
+                                <p><strong>Early Bird Pricing Active!</strong> Expires March 31, 2026. Price will increase after deadline.</p>
+                            </div>
+                            <div class="trust-list">
+                                <div class="trust-item"><i class="fas fa-lock"></i> Secure SSL encrypted payment</div>
+                                <div class="trust-item"><i class="fas fa-undo"></i> 100% refund if event cancelled</div>
+                                <div class="trust-item"><i class="fas fa-ticket-alt"></i> Instant e-ticket on registration</div>
+                                <div class="trust-item"><i class="fas fa-headset"></i> 24/7 support until event day</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Help Card -->
+                    <div class="help-card reveal">
+                        <div class="help-card-title">Need Help?</div>
+                        <div class="help-item">
+                            <div class="help-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <div class="help-text-label">Email Support</div>
+                                <div class="help-text-val"><a href="mailto:delegate@bharataiinnovation.com">delegate@bharataiinnovation.com</a></div>
+                            </div>
+                        </div>
+                        <div class="help-item">
+                            <div class="help-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <div class="help-text-label">Phone Support</div>
+                                <div class="help-text-val">+91 89765 80367</div>
+                            </div>
+                        </div>
+                        <div class="help-item">
+                            <div class="help-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <div class="help-text-label">Support Hours</div>
+                                <div class="help-text-val">Mon–Sat, 9am–7pm IST</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 2: DELEGATION PACKAGES
+    ═══════════════════════════════════════════ -->
+    <section class="section-pad" id="delegation-section" style="background:white;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-layer-group"></i> Package Options</span>
+                <h2 class="section-title">Delegation <span class="accent">Packages</span></h2>
+                <p class="section-subtitle">Choose the perfect package size for your team</p>
+            </div>
+            <div class="delegation-packages reveal">
+                <!-- SMALL DELEGATION -->
+                <div class="delegation-card">
+                    <div class="delegation-size">
+                        <div class="delegation-number">5-9</div>
+                        <div class="delegation-label">Delegates</div>
+                    </div>
+                    <h3 class="delegation-name">Team Package</h3>
+                    <p class="delegation-desc">Perfect for small teams and department groups</p>
+                    <div class="delegation-price">
+                        <div class="price-amount">15% OFF</div>
+                        <div class="price-label">Standard Registration Fee</div>
+                    </div>
+                    <ul class="delegation-features">
+                        <li><i class="fas fa-check-circle"></i> 15% discount on all registrations</li>
+                        <li><i class="fas fa-check-circle"></i> Conference materials for all members</li>
+                        <li><i class="fas fa-check-circle"></i> Group photo opportunity</li>
+                        <li><i class="fas fa-check-circle"></i> Delegation badges</li>
+                        <li><i class="fas fa-check-circle"></i> Access to networking lounge</li>
+                        <li><i class="fas fa-check-circle"></i> Group accommodation assistance</li>
+                    </ul>
+                    <a href="#register-section" class="btn btn-primary btn-block" onclick="scrollToRegister()">Register Team <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- MEDIUM DELEGATION (FEATURED) -->
+                <div class="delegation-card featured">
+                    <div class="delegation-badge">Most Popular</div>
+                    <div class="delegation-size">
+                        <div class="delegation-number">10-19</div>
+                        <div class="delegation-label">Delegates</div>
+                    </div>
+                    <h3 class="delegation-name">Enterprise Package</h3>
+                    <p class="delegation-desc">Ideal for organizations and mid-size companies</p>
+                    <div class="delegation-price">
+                        <div class="price-amount">25% OFF</div>
+                        <div class="price-label">Standard Registration Fee</div>
+                    </div>
+                    <ul class="delegation-features">
+                        <li><i class="fas fa-check-circle"></i> 25% discount on all registrations</li>
+                        <li><i class="fas fa-check-circle"></i> All Team Package benefits</li>
+                        <li><i class="fas fa-check-circle"></i> Priority seating in keynote sessions</li>
+                        <li><i class="fas fa-check-circle"></i> Private meeting space (2 hours)</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated delegation coordinator</li>
+                        <li><i class="fas fa-check-circle"></i> Custom branded materials</li>
+                        <li><i class="fas fa-check-circle"></i> Group hotel booking service</li>
+                        <li><i class="fas fa-check-circle"></i> Recognition in event materials</li>
+                    </ul>
+                    <a href="#register-section" class="btn btn-primary btn-block" onclick="scrollToRegister()">Register Enterprise <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- LARGE DELEGATION -->
+                <div class="delegation-card">
+                    <div class="delegation-size">
+                        <div class="delegation-number">20+</div>
+                        <div class="delegation-label">Delegates</div>
+                    </div>
+                    <h3 class="delegation-name">Corporate Package</h3>
+                    <p class="delegation-desc">For large organizations and institutions</p>
+                    <div class="delegation-price">
+                        <div class="price-amount">30% OFF</div>
+                        <div class="price-label">Standard Registration Fee</div>
+                    </div>
+                    <ul class="delegation-features">
+                        <li><i class="fas fa-check-circle"></i> 30% discount on all registrations</li>
+                        <li><i class="fas fa-check-circle"></i> All Enterprise Package benefits</li>
+                        <li><i class="fas fa-check-circle"></i> VIP lounge access for all delegates</li>
+                        <li><i class="fas fa-check-circle"></i> Private meeting space (Full day)</li>
+                        <li><i class="fas fa-check-circle"></i> Premium seating guarantee</li>
+                        <li><i class="fas fa-check-circle"></i> Logo on delegation wall</li>
+                        <li><i class="fas fa-check-circle"></i> Customized itinerary planning</li>
+                        <li><i class="fas fa-check-circle"></i> Transportation coordination</li>
+                        <li><i class="fas fa-check-circle"></i> Complimentary booth upgrade option</li>
+                    </ul>
+                    <a href="#register-section" class="btn btn-primary btn-block" onclick="scrollToRegister()">Register Corporate <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- CUSTOM PACKAGE -->
+            <div class="custom-package reveal">
+                <div class="custom-package-content">
+                    <h3>Need a Custom Package?</h3>
+                    <p>For delegations larger than 20 or with specific requirements, we can create a tailored package that meets your organization's unique needs.</p>
+                    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                        <a href="contact.html" class="btn btn-primary btn-lg">Contact Us <i class="fas fa-envelope"></i></a>
+                        <a href="tel:+918976580367" class="btn btn-ghost btn-lg" style="background:rgba(255,255,255,0.12);color:white;border-color:rgba(255,255,255,0.3);">Call Now <i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 3: PASS COMPARISON
+    ═══════════════════════════════════════════ -->
+    <section class="section-pad" id="comparison-section" style="background:var(--off-white);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-id-badge"></i> Compare Passes</span>
+                <h2 class="section-title">Pass <span class="accent">Comparison</span></h2>
+                <p class="section-subtitle">Choose the right pass type for your team members based on their needs</p>
+            </div>
+            <div class="pass-comparison-wrapper reveal">
+                <table class="pass-comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Details</th>
+                            <th>Visitor</th>
+                            <th>Academic</th>
+                            <th>Delegate</th>
+                            <th>Media</th>
+                            <th>VIP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-price-row">
+                            <td>Fee</td>
+                            <td class="price-free">Free</td>
+                            <td class="price-standard">INR 999</td>
+                            <td class="price-standard">INR 4,999</td>
+                            <td class="price-standard" style="color:#6366F1;font-weight:700;">By Invite</td>
+                            <td class="price-vip">INR 14,999</td>
+                        </tr>
+                        <tr>
+                            <td>Access to Exhibition Area</td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Keynote Sessions</td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Conference Sessions Access</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Networking Lounge Access</td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Conference Materials & Kit</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Lunch & Refreshments</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr>
+                            <td>AI Live Demos</td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Hackathon Participation</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Student Networking Zone</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Press/Media Area Access</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Interview & Recording Rights</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Digital Recordings</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Certificate of Participation</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr class="feature-highlight">
+                            <td>VIP Lounge Access</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr class="feature-highlight">
+                            <td>Priority Front-Row Seating</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr class="feature-highlight">
+                            <td>Speaker Meet & Greet</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr class="feature-highlight">
+                            <td>Exclusive VIP Dinner</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                        <tr class="feature-highlight">
+                            <td>Private Meeting Space</td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-times-circle check-no"></i></td>
+                            <td><i class="fas fa-check-circle check-yes"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align:center;margin-top:2rem;">
+                <a href="#register-section" class="btn btn-primary btn-lg" onclick="scrollToRegister()">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 4: DELEGATION BENEFITS
+    ═══════════════════════════════════════════ -->
+    <section class="section-pad" id="benefits-section" style="background:white;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-gift"></i> Exclusive Benefits</span>
+                <h2 class="section-title">Delegation <span class="accent">Benefits</span></h2>
+                <p class="section-subtitle">Premium perks and exclusive access for delegation members</p>
+            </div>
+            <div class="benefits-grid reveal">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Special Pricing</h3>
+                    <p>Up to 30% discount on registration fees with our group delegation packages</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎫</div>
+                    <h3>Priority Access</h3>
+                    <p>Reserved seating in keynote sessions and priority entry to all conference events</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Private Networking</h3>
+                    <p>Exclusive delegation lounge access with private meeting spaces and refreshments</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h3>Custom Materials</h3>
+                    <p>Personalized conference materials, branded delegation badges, and team folders</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👔</div>
+                    <h3>Dedicated Support</h3>
+                    <p>Personal delegation coordinator to manage logistics and special requirements</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏨</div>
+                    <h3>Group Accommodation</h3>
+                    <p>Negotiated rates at partner hotels with group booking assistance</p>
+                </div>
+            </div>
+
+            <!-- IDEAL FOR -->
+            <div style="margin-top:4rem;">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow"><i class="fas fa-building"></i> Who Should Attend</span>
+                    <h2 class="section-title">Ideal For <span class="accent">Organizations</span></h2>
+                </div>
+                <div class="benefits-grid reveal">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏢</div>
+                        <h3>Corporate Teams</h3>
+                        <p>Technology, innovation, and business strategy teams looking to implement AI solutions</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎓</div>
+                        <h3>Academic Institutions</h3>
+                        <p>Universities, research centers, and educational organizations exploring AI research</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏛️</div>
+                        <h3>Government Bodies</h3>
+                        <p>Public sector organizations implementing digital transformation and AI initiatives</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🚀</div>
+                        <h3>Startup Teams</h3>
+                        <p>Growing startups looking to scale AI capabilities and connect with investors</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💼</div>
+                        <h3>Consulting Firms</h3>
+                        <p>Professional services firms advising clients on AI strategy and implementation</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏭</div>
+                        <h3>Industry Associations</h3>
+                        <p>Trade bodies and industry groups promoting AI adoption in specific sectors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 5: WHY BRING A DELEGATION
+    ═══════════════════════════════════════════ -->
+    <section class="section-pad" id="why-section" style="background:var(--off-white);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-lightbulb"></i> Maximize Impact</span>
+                <h2 class="section-title">Why Bring a <span class="accent">Delegation?</span></h2>
+                <p class="section-subtitle">Amplify learning, strengthen team collaboration, and maximize ROI with group participation</p>
+            </div>
+            <div class="why-delegation-grid reveal">
+                <div class="why-item">
+                    <div class="why-number">01</div>
+                    <div>
+                        <h4>Shared Learning Experience</h4>
+                        <p>Enable your team to learn together, discuss insights in real-time, and align on AI strategy and implementation across your organization.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">02</div>
+                    <div>
+                        <h4>Cost Savings</h4>
+                        <p>Enjoy significant discounts on registration fees, group accommodation rates, and additional perks not available to individual attendees.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">03</div>
+                    <div>
+                        <h4>Networking Multiplier</h4>
+                        <p>Your team can attend different sessions simultaneously, expanding your organization's reach and networking opportunities exponentially.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">04</div>
+                    <div>
+                        <h4>Team Building</h4>
+                        <p>Strengthen relationships, build cross-functional understanding, and create a shared vision for AI adoption within your organization.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Process -->
+            <div style="margin-top:4rem;">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow"><i class="fas fa-clipboard-list"></i> Simple Process</span>
+                    <h2 class="section-title">How to Book Your <span class="accent">Delegation</span></h2>
+                    <p class="section-subtitle">Easy 4-step process to register your entire team</p>
+                </div>
+                <div class="process-steps reveal">
+                    <div class="process-step">
+                        <div class="booking-step-number">1</div>
+                        <h4>Contact Us</h4>
+                        <p>Reach out via email or phone to discuss your delegation size and requirements</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="booking-step-number">2</div>
+                        <h4>Get Quote</h4>
+                        <p>Receive a customized quotation with package details and pricing</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="booking-step-number">3</div>
+                        <h4>Submit Details</h4>
+                        <p>Provide delegate information and complete registration forms</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="booking-step-number">4</div>
+                        <h4>Confirm & Pay</h4>
+                        <p>Finalize booking with payment and receive confirmation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <span class="section-eyebrow" style="color:var(--gold-light);background:rgba(255,179,0,0.15);border-color:rgba(255,179,0,0.3);margin-bottom:1.5rem;">
+                    <i class="fas fa-users"></i> Limited Availability
+                </span>
+                <h2>Ready to <span style="background:var(--grad-sunset);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Join Us?</span></h2>
+                <p>Secure your spot today. Early bird discounts available for bookings before April 15, 2026.</p>
+                <div class="cta-buttons">
+                    <a href="#register-section" class="btn btn-primary btn-xl" onclick="scrollToRegister()">Register Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="contact.html" class="btn btn-ghost btn-xl">Get Custom Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUCCESS OVERLAY -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-box">
+            <div class="success-anim">✓</div>
+            <h3 id="successTitle">Registration Confirmed!</h3>
+            <p id="successMsg">Thank you for registering for Bharat AI Innovation 2026. Your booking is confirmed and an e-ticket has been sent to your email.</p>
+            <div class="success-ref">Reference: <strong id="successRef">BHAI-2026-XXXXX</strong></div>
+            <div id="networkingAppContainer" style="display:none;margin-top:1rem;">
+                <a id="networkingAppLink" href="#" target="_blank" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;gap:0.5rem;background:linear-gradient(135deg,#667eea,#764ba2);border:none;margin-bottom:0.8rem;">
+                    <i class="fas fa-rocket"></i> Open Networking App
+                </a>
+            </div>
+            <a href="index.html" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:40px;width:auto;border-radius:10px;padding:5px;background:rgba(255,255,255,0.95);box-shadow:0 2px 6px rgba(0,0,0,0.08);">
+                    </div>
+                    <p class="footer-description">
+                        Advancing India's Future Through AI Innovation. Join us in creating a Viksit Bharat by 2047.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="conference.html">Conference</a></li>
+                        <li><a href="exhibition.html">Exhibition</a></li>
+                        <li><a href="register.html">Register & Delegation</a></li>
+                        <li><a href="startup-pitch.html">Startup Pitch</a></li>
+                        <li><a href="training-workshop.html">Workshops</a></li>
+                        <li><a href="partner.html">Partner</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Event Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="conference.html#schedule">Schedule</a></li>
+                        <li><a href="conference.html">Programme</a></li>
+                        <li><a href="exhibition.html">Exhibition Zones</a></li>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@bharataiinnovation.com</p>
+                        <p><i class="fas fa-phone"></i> +91 89765 80367</p>
+                        <p><i class="fas fa-map-marker-alt"></i> World Trade Center Mumbai, Cuffe Parade, Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bharat AI Innovation. All rights reserved. | Organized by Aegis Knowledge Trust</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        /* ── Registration & Delegation Page JS ── */
+
+        const pkgData = {
+            delegate: { name: 'Delegate Pass', price: '₹4,999', original: '₹8,299', discount: '– ₹3,300', isFree: false },
+            vip:      { name: 'VIP Pass',      price: '₹14,999', original: '₹24,999', discount: '– ₹10,000', isFree: false },
+            academic: { name: 'Academic Pass', price: '₹999', original: '₹2,499', discount: '– ₹1,500', isFree: false },
+            media:    { name: 'Media Pass',    price: 'By Invite', original: '', discount: '', isFree: true },
+            visitor:  { name: 'Visitor Pass',  price: 'FREE', original: '', discount: '', isFree: true }
+        };
+
+        // Package card click
+        document.querySelectorAll('.pkg-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                const radio = card.querySelector('.pkg-radio');
+                if (radio) { radio.checked = true; updateSidebar(radio.value); }
+            });
+        });
+
+        function updateSidebar(pkgVal) {
+            const d = pkgData[pkgVal] || pkgData.delegate;
+            document.getElementById('sidebar-pkg-name').textContent = d.name;
+            document.getElementById('sidebar-price').textContent = d.price;
+
+            const originalEl = document.getElementById('sidebar-original');
+            const discountEl = document.getElementById('sidebar-discount');
+            const priceSection = document.querySelector('.summary-price-section');
+            const earlyBird = document.querySelector('.early-bird-banner');
+
+            if (d.isFree) {
+                // Hide pricing rows for free/invite passes
+                originalEl.parentElement.style.display = 'none';
+                discountEl.parentElement.style.display = 'none';
+                if (earlyBird) earlyBird.style.display = 'none';
+                document.querySelector('.price-total-label').textContent = 'Total';
+            } else {
+                originalEl.parentElement.style.display = 'flex';
+                discountEl.parentElement.style.display = 'flex';
+                if (earlyBird) earlyBird.style.display = '';
+                originalEl.textContent = d.original;
+                discountEl.textContent = d.discount;
+                document.querySelector('.price-total-label').textContent = 'You Pay';
+            }
+        }
+
+        function goToStep2() {
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('step-2').style.display = 'block';
+            const s1 = document.getElementById('step-1-indicator');
+            const s2 = document.getElementById('step-2-indicator');
+            s1.classList.remove('active'); s1.classList.add('done');
+            s1.querySelector('.step-num').textContent = '✓';
+            s2.classList.remove('pending'); s2.classList.add('active');
+            window.scrollTo({ top: document.querySelector('.reg-section').offsetTop - 120, behavior: 'smooth' });
+        }
+
+        function goToStep1() {
+            document.getElementById('step-2').style.display = 'none';
+            document.getElementById('step-1').style.display = 'block';
+            const s1 = document.getElementById('step-1-indicator');
+            const s2 = document.getElementById('step-2-indicator');
+            s1.classList.add('active'); s1.classList.remove('done');
+            s1.querySelector('.step-num').textContent = '1';
+            s2.classList.add('pending'); s2.classList.remove('active');
+        }
+
+        function toggleInterest(el) { el.classList.toggle('selected'); }
+
+        function scrollToRegister() {
+            setTimeout(() => {
+                const target = document.getElementById('register-section');
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 120, behavior: 'smooth' });
+                }
+            }, 100);
+        }
+
+        // Section tabs — active on scroll
+        const tabs = document.querySelectorAll('.page-tab');
+        const sections = [];
+        tabs.forEach(tab => {
+            const sectionId = tab.getAttribute('data-section');
+            const section = document.getElementById(sectionId);
+            if (section) sections.push({ tab, section });
+        });
+
+        function updateActiveTabs() {
+            const scrollPos = window.scrollY + 180;
+            let activeIdx = 0;
+            sections.forEach((item, idx) => {
+                if (scrollPos >= item.section.offsetTop) activeIdx = idx;
+            });
+            tabs.forEach(t => t.classList.remove('active'));
+            if (sections[activeIdx]) sections[activeIdx].tab.classList.add('active');
+        }
+        window.addEventListener('scroll', updateActiveTabs);
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = tab.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    window.scrollTo({ top: section.offsetTop - 120, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Handle hash-based navigation (e.g. register.html#delegation-section)
+        function handleHashNavigation() {
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(hash);
+                if (target) {
+                    setTimeout(() => {
+                        window.scrollTo({ top: target.offsetTop - 120, behavior: 'smooth' });
+                    }, 300);
+                }
+            }
+        }
+        window.addEventListener('load', handleHashNavigation);
+
+        // Form submission
+        document.getElementById('regForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            let valid = true;
+
+            const fields = [
+                { id: 'r_fname', errId: 'err-fname', check: v => v.trim().length > 0 },
+                { id: 'r_lname', errId: 'err-lname', check: v => v.trim().length > 0 },
+                { id: 'r_email', errId: 'err-email', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+                { id: 'r_phone', errId: 'err-phone', check: v => v.replace(/\D/g,'').length >= 10 },
+                { id: 'r_org',   errId: 'err-org',   check: v => v.trim().length > 0 },
+                { id: 'r_industry', errId: 'err-industry', check: v => v !== '' }
+            ];
+
+            fields.forEach(f => {
+                const el = document.getElementById(f.id);
+                const errEl = document.getElementById(f.errId);
+                if (!f.check(el.value)) {
+                    el.classList.add('has-error');
+                    errEl.classList.add('show');
+                    valid = false;
+                } else {
+                    el.classList.remove('has-error');
+                    errEl.classList.remove('show');
+                }
+                el.addEventListener('input', () => { el.classList.remove('has-error'); errEl.classList.remove('show'); }, { once: true });
+            });
+
+            const terms = document.getElementById('r_terms');
+            const termsErr = document.getElementById('err-terms');
+            if (!terms.checked) { termsErr.classList.add('show'); valid = false; }
+            else { termsErr.classList.remove('show'); }
+            terms.addEventListener('change', () => termsErr.classList.remove('show'), { once: true });
+
+            if (!valid) return;
+
+            const btn = document.getElementById('regSubmitBtn');
+            btn.classList.add('loading');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+
+            // REAL API CALL to networking app
+            const NETWORKING_API = 'https://bharatai-networking.pages.dev/api/external/register';
+
+            const payload = {
+                first_name: document.getElementById('r_fname').value.trim(),
+                last_name: document.getElementById('r_lname').value.trim(),
+                email: document.getElementById('r_email').value.trim(),
+                phone: document.getElementById('r_phone').value.trim(),
+                organization: document.getElementById('r_org').value.trim(),
+                job_title: document.getElementById('r_title').value.trim(),
+                industry: document.getElementById('r_industry').value,
+                company_size: document.getElementById('r_size').value,
+                city: document.getElementById('r_city').value.trim(),
+                country: document.getElementById('r_country').value,
+                source: document.getElementById('r_source').value,
+                special_requirements: document.getElementById('r_special').value.trim(),
+                package: document.querySelector('input[name="package"]:checked')?.value || 'delegate',
+                newsletter: document.getElementById('r_newsletter').checked,
+            };
+
+            try {
+                const response = await fetch(NETWORKING_API, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!response.ok && response.status !== 200 && response.status !== 201) {
+                    const errData = await response.json().catch(() => ({}));
+                    throw new Error(errData.error || `Server error (${response.status}). Please try again.`);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Update reference ID
+                    document.getElementById('successRef').textContent = result.reference;
+
+                    // Handle already_registered flag
+                    if (result.already_registered) {
+                        document.getElementById('successTitle').textContent = 'Already Registered!';
+                        document.getElementById('successMsg').textContent = 
+                            'You are already registered for Bharat AI Innovation 2026. Your existing registration details have been sent to your email.';
+                    } else {
+                        document.getElementById('successTitle').textContent = 'Registration Confirmed!';
+                        document.getElementById('successMsg').textContent = 
+                            'Thank you for registering for Bharat AI Innovation 2026. Your booking is confirmed and an e-ticket has been sent to your email.';
+                    }
+
+                    // Show networking app button if URL provided
+                    if (result.networking_app_url) {
+                        const container = document.getElementById('networkingAppContainer');
+                        const link = document.getElementById('networkingAppLink');
+                        link.href = result.networking_app_url;
+                        container.style.display = 'block';
+                    }
+
+                    document.getElementById('successOverlay').classList.add('show');
+                } else {
+                    throw new Error(result.error || 'Registration failed');
+                }
+            } catch (err) {
+                alert('Registration error: ' + err.message + '\nPlease try again or contact support.');
+                btn.classList.remove('loading');
+                btn.innerHTML = '<i class="fas fa-lock"></i> Complete Registration <i class="fas fa-arrow-right btn-icon"></i>';
+                return;
+            }
+        });
+
+        // Countdown
+        function updateCountdown() {
+            const target = new Date('2026-03-31T23:59:59');
+            const now = new Date();
+            const diff = target - now;
+            if (diff <= 0) { document.querySelector('.countdown-strip').style.display='none'; return; }
+            const d = Math.floor(diff/864e5), h = Math.floor(diff%864e5/36e5), m = Math.floor(diff%36e5/6e4), s = Math.floor(diff%6e4/1e3);
+            document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+            document.getElementById('cd-hrs').textContent  = String(h).padStart(2,'0');
+            document.getElementById('cd-min').textContent  = String(m).padStart(2,'0');
+            document.getElementById('cd-sec').textContent  = String(s).padStart(2,'0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibition — Bharat AI Innovation 2026</title>
+    <meta name="description" content="Book your booth at Bharat AI Innovation exhibition across 8 industry zones — Mumbai, June 2–3, 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── Exhibition Extra Styles ── */
+        .zone-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 1.25rem;
+        }
+        .zone-card {
+            background: white;
+            border: 1px solid var(--light);
+            border-radius: var(--r-xl);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--t-med);
+            cursor: default;
+        }
+        .zone-card:hover {
+            border-color: rgba(255,107,0,0.25);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-6px);
+        }
+        .zone-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .zone-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.3rem; }
+        .zone-card p  { font-size: 0.8rem; color: var(--dark-grey); margin: 0; }
+        .zone-count {
+            display: inline-block;
+            margin-top: 0.65rem;
+            background: rgba(255,107,0,0.08);
+            color: var(--saffron);
+            border-radius: var(--r-full);
+            padding: 0.2rem 0.65rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        /* Booth Packages */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1.5rem;
+        }
+        .package-card {
+            background: white;
+            border: 1px solid var(--light);
+            border-radius: var(--r-2xl);
+            padding: 2rem 1.5rem;
+            position: relative;
+            transition: var(--t-med);
+        }
+        .package-card.featured {
+            border-color: var(--saffron);
+            box-shadow: 0 0 0 4px rgba(255,107,0,0.08), var(--shadow-xl);
+            transform: scale(1.03);
+        }
+        .package-card:hover:not(.featured) {
+            border-color: rgba(255,107,0,0.2);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px);
+        }
+        .package-badge {
+            position: absolute;
+            top: -14px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--grad-saffron);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: var(--r-full);
+            box-shadow: var(--shadow-saffron);
+            white-space: nowrap;
+        }
+        .package-type {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--saffron);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+        .package-name {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+        .package-size {
+            font-size: 0.9rem;
+            color: var(--dark-grey);
+            margin-bottom: 0.25rem;
+        }
+        .package-area {
+            font-size: 0.78rem;
+            color: var(--mid-grey);
+            margin-bottom: 0.2rem;
+        }
+        .package-count {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--saffron);
+            background: rgba(255,107,0,0.08);
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--r-full);
+            margin-bottom: 1.25rem;
+        }
+        .package-price {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--grad-saffron);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1.25rem;
+        }
+        .package-price span { font-size: 0.85rem; font-weight: 600; color: var(--dark-grey); -webkit-text-fill-color: var(--dark-grey); }
+        .package-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+        .package-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.88rem;
+            color: var(--dark-grey);
+        }
+        .package-features li::before {
+            content: '✓';
+            color: var(--saffron);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Why exhibit */
+        .why-exhibit-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1.5rem;
+        }
+
+        /* Exhibitor stats */
+        .exhibitor-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 1.5rem;
+        }
+        .exhibitor-stat-card {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--r-xl);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            transition: var(--t-med);
+        }
+        .exhibitor-stat-card:hover { background: var(--glass-white-md); transform: translateY(-4px); }
+        .exhibitor-stat-num {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 900;
+            background: var(--grad-sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .exhibitor-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.65); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+        /* Floor plan preview */
+        .floor-plan-preview {
+            background: var(--grad-hero);
+            border-radius: var(--r-2xl);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .floor-plan-preview::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .hall-map {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 0.75rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .hall-zone {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: var(--r-lg);
+            padding: 1rem 0.75rem;
+            text-align: center;
+            transition: var(--t-med);
+            cursor: default;
+        }
+        .hall-zone:hover { background: rgba(255,107,0,0.2); border-color: rgba(255,107,0,0.4); }
+        .hall-zone span { font-size: 0.72rem; color: rgba(255,255,255,0.75); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; display: block; }
+        .hall-zone-icon { font-size: 1.4rem; margin-bottom: 0.35rem; }
+        .hall-main { grid-column: 1 / 3; background: rgba(255,107,0,0.15); border-color: rgba(255,107,0,0.3); }
+
+        @media (max-width: 1200px) { .packages-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 1024px) { .packages-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 768px) { .packages-grid { grid-template-columns: 1fr; } .package-card.featured { transform: none; } }
+        @media (max-width: 768px)  {
+            .zone-grid           { grid-template-columns: repeat(2,1fr); }
+            .why-exhibit-grid    { grid-template-columns: 1fr; }
+            .exhibitor-stat-grid { grid-template-columns: repeat(2,1fr); }
+            .hall-map            { grid-template-columns: repeat(2,1fr); }
+            .hall-main           { grid-column: 1 / 3; }
+            #value .feature-card[style*="grid-column"] { flex-direction: column; }
+        }
+        @media (max-width: 640px) {
+            #value > .container > div[style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+            #value .feature-card[style*="grid-column"] { grid-column: auto !important; }
+        }
+        @media (max-width: 480px)  { .zone-grid { grid-template-columns: repeat(2,1fr); } }
+
+        /* ── Premium Hero Override ── */
+        .exhibition-hero {
+            position: relative;
+            padding: 160px 0 90px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0D0F1A 0%, #0F1425 50%, #0D0F1A 100%);
+            z-index: 0;
+        }
+        .exhibition-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 70% 60% at 70% 40%, rgba(43,140,255,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 20% 60%, rgba(255,107,0,0.1) 0%, transparent 55%);
+        }
+        .exhibition-hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 55px 55px;
+        }
+        .exhibition-hero-content { position: relative; z-index: 2; text-align: center; }
+        .exhibition-hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: rgba(43,140,255,0.1);
+            border: 1px solid rgba(43,140,255,0.22);
+            border-radius: 100px; padding: 0.45rem 1.25rem;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #5BA8FF; margin-bottom: 1.5rem;
+        }
+        .exhibition-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900;
+            color: white; line-height: 1.1; margin-bottom: 1.2rem;
+        }
+        .exhibition-hero h1 span { background: linear-gradient(135deg, #FF7A00, #FF3D00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .exhibition-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.6); max-width: 620px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .exhibition-hero-pills {
+            display: flex; align-items: center; justify-content: center; gap: 0.85rem; flex-wrap: wrap;
+        }
+        .exhibition-pill {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px; padding: 0.6rem 1.2rem;
+            font-size: 0.85rem; color: rgba(255,255,255,0.8); font-weight: 600;
+        }
+        .exhibition-pill i { color: #FF7A00; }
+        /* ── Zone grid enhanced ── */
+        .zone-card { position: relative; overflow: hidden; }
+        .zone-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,107,0,0.04), transparent); opacity: 0; transition: opacity 0.3s; }
+        .zone-card:hover::after { opacity: 1; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar dark-nav" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:44px;width:auto;border-radius:12px;padding:6px;background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="conference.html" class="nav-link">Conference</a>
+                <a href="exhibition.html" class="nav-link active">Exhibition</a>
+                <a href="startup-pitch.html" class="nav-link">Startup Pitch</a>
+                <a href="training-workshop.html" class="nav-link">Workshops</a>
+                <a href="partner.html" class="nav-link">Partner</a>
+                <a href="accommodation.html" class="nav-link">Accommodation</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="https://networking.bharataiinnovation.com/inquiry" class="nav-cta">Book a Booth <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PREMIUM HERO -->
+    <section class="exhibition-hero">
+        <div class="exhibition-hero-grid"></div>
+        <div class="container exhibition-hero-content">
+            <div class="exhibition-hero-eyebrow"><i class="fas fa-store"></i> The Exhibition</div>
+            <h1>AI Innovation <span>Exhibition</span> 2026</h1>
+            <p class="exhibition-hero-sub">Bharat AI Innovation exhibition floor — 8 industry zones and live AI demonstrations. Secure your booth at this landmark debut event.</p>
+            <div class="exhibition-hero-pills">
+                <span class="exhibition-pill"><i class="fas fa-building"></i> 100+ Exhibitors</span>
+                <span class="exhibition-pill"><i class="fas fa-th-large"></i> 8 Industry Zones</span>
+                <span class="exhibition-pill"><i class="fas fa-robot"></i> Live AI Demos</span>
+                <span class="exhibition-pill"><i class="fas fa-users"></i> Targeted Visitors</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXHIBITION STATS -->
+    <section class="government-support dark-section section-pad">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-chart-bar"></i> By the Numbers</span>
+                <h2 class="section-title">Exhibition <span class="accent">at a Glance</span></h2>
+            </div>
+            <div class="exhibitor-stat-grid">
+                <div class="exhibitor-stat-card reveal reveal-delay-1">
+                    <div class="exhibitor-stat-num" data-count="132" data-suffix="">132</div>
+                    <div class="exhibitor-stat-label">Booth Spaces</div>
+                </div>
+                <div class="exhibitor-stat-card reveal reveal-delay-2">
+                    <div class="exhibitor-stat-num" data-count="7" data-suffix="">7</div>
+                    <div class="exhibitor-stat-label">Booth Types</div>
+                </div>
+                <div class="exhibitor-stat-card reveal reveal-delay-3">
+                    <div class="exhibitor-stat-num" data-count="8" data-suffix="">8</div>
+                    <div class="exhibitor-stat-label">Industry Zones</div>
+                </div>
+                <div class="exhibitor-stat-card reveal reveal-delay-4">
+                    <div class="exhibitor-stat-num">977 sqm</div>
+                    <div class="exhibitor-stat-label">Total Exhibition Area</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INDUSTRY ZONES -->
+    <section class="section-pad" style="background:white;" id="zones">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-th-large"></i> Zones</span>
+                <h2 class="section-title">8 Industry <span class="accent">Exhibition Zones</span></h2>
+                <p class="section-subtitle">Purpose-built zones connecting AI innovators, buyers and decision-makers across key sectors</p>
+            </div>
+                <div class="zone-grid">
+                <div class="zone-card reveal reveal-delay-1"><div class="zone-icon">🤖</div><h3>Generative AI</h3><p>LLMs, image generation, code AI</p><div class="zone-count">Booths available</div></div>
+                <div class="zone-card reveal reveal-delay-2"><div class="zone-icon">🏥</div><h3>Healthcare AI</h3><p>Diagnostics, drug discovery, wearables</p><div class="zone-count">Booths available</div></div>
+                <div class="zone-card reveal reveal-delay-3"><div class="zone-icon">💰</div><h3>FinTech AI</h3><p>Payments, fraud detection, credit</p><div class="zone-count">Booths available</div></div>
+                <div class="zone-card reveal reveal-delay-4"><div class="zone-icon">🌾</div><h3>AgriTech AI</h3><p>Precision farming, crop analytics</p><div class="zone-count">Booths available</div></div>
+                <div class="zone-card reveal reveal-delay-1"><div class="zone-icon">🏭</div><h3>Manufacturing AI</h3><p>Robotics, automation, Industry 4.0</p><div class="zone-count">Booths available</div></div>
+                <div class="zone-card reveal reveal-delay-2"><div class="zone-icon">☁️</div><h3>Cloud & Infra</h3><p>AI cloud platforms, MLOps, GPUs</p><div class="zone-count">Booths available</div></div>
+                <div class="zone-card reveal reveal-delay-3"><div class="zone-icon">🚀</div><h3>Startup Pavilion</h3><p>India's most promising AI startups</p><div class="zone-count">Booths available</div></div>
+                <div class="zone-card reveal reveal-delay-4"><div class="zone-icon">🌐</div><h3>Global Pavilion</h3><p>International AI companies & delegations</p><div class="zone-count">Booths available</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOOR PLAN -->
+    <section class="section-pad" style="background:var(--off-white);" id="floorplan">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-map"></i> Layout</span>
+                <h2 class="section-title">Exhibition <span class="accent">Floor Plan</span></h2>
+                <p class="section-subtitle">World Trade Center Mumbai, Cuffe Parade — dedicated AI exhibition floor across 2 levels</p>
+            </div>
+            <div class="floor-plan-preview reveal">
+                <div class="hall-map">
+                    <div class="hall-zone hall-main">
+                        <div class="hall-zone-icon">🎤</div>
+                        <span>Main Stage & Keynote Hall</span>
+                    </div>
+                    <div class="hall-zone">
+                        <div class="hall-zone-icon">🤖</div>
+                        <span>GenAI Zone</span>
+                    </div>
+                    <div class="hall-zone">
+                        <div class="hall-zone-icon">☁️</div>
+                        <span>Cloud & Infra</span>
+                    </div>
+                    <div class="hall-zone">
+                        <div class="hall-zone-icon">🏥</div>
+                        <span>Healthcare AI</span>
+                    </div>
+                    <div class="hall-zone">
+                        <div class="hall-zone-icon">💰</div>
+                        <span>FinTech AI</span>
+                    </div>
+                    <div class="hall-zone">
+                        <div class="hall-zone-icon">🚀</div>
+                        <span>Startup Pavilion</span>
+                    </div>
+                    <div class="hall-zone">
+                        <div class="hall-zone-icon">🌐</div>
+                        <span>Global Pavilion</span>
+                    </div>
+                    <div class="hall-zone">
+                        <div class="hall-zone-icon">🎓</div>
+                        <span>EdTech AI</span>
+                    </div>
+                    <div class="hall-zone">
+                        <div class="hall-zone-icon">🏭</div>
+                        <span>Manufacturing</span>
+                    </div>
+                    <div class="hall-zone">
+                        <div class="hall-zone-icon">☕</div>
+                        <span>Networking Lounge</span>
+                    </div>
+                </div>
+                <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;margin-top:1.5rem;position:relative;z-index:1;">
+                    <i class="fas fa-info-circle"></i> Illustrative layout — detailed floor plan released 60 days before the event
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE YOU DRIVE HOME -->
+    <section class="section-pad" style="background:white;" id="value">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-star"></i> Why Exhibit</span>
+                <h2 class="section-title">Value You <span class="accent">Drive Home</span></h2>
+                <p class="section-subtitle">Every interaction at Bharat AI Innovation is engineered to deliver measurable, lasting value for your organisation</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;">
+
+                <!-- 1 -->
+                <div class="feature-card reveal reveal-delay-1" style="display:flex;flex-direction:column;gap:0.75rem;">
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <div class="feature-card-icon" style="flex-shrink:0;"><i class="fas fa-microphone-alt"></i></div>
+                        <h3 style="margin:0;">Innovation Talk</h3>
+                    </div>
+                    <p style="margin:0;">Step onto the Innovation Stage for 8 minutes to showcase your innovation strength and establish thought leadership before a live audience of policymakers, prospective clients, industry influencers, investors, and senior enterprise leaders.</p>
+                </div>
+
+                <!-- 2 -->
+                <div class="feature-card reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:0.75rem;">
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <div class="feature-card-icon" style="flex-shrink:0;"><i class="fas fa-tv"></i></div>
+                        <h3 style="margin:0;">Innovation Showcase <span style="font-size:0.78rem;font-weight:600;color:var(--saffron);display:block;margin-top:2px;">Centre Stage Demonstration</span></h3>
+                    </div>
+                    <p style="margin:0;">Demonstrate your products and solutions in action. Build credibility and visibility while telling your innovation story directly to the key stakeholders who matter most.</p>
+                </div>
+
+                <!-- 3 -->
+                <div class="feature-card reveal reveal-delay-3" style="display:flex;flex-direction:column;gap:0.75rem;">
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <div class="feature-card-icon" style="flex-shrink:0;"><i class="fas fa-user-tie"></i></div>
+                        <h3 style="margin:0;">Engage Decision Makers</h3>
+                    </div>
+                    <p style="margin:0;">Connect directly with CXOs, policymakers, and investors who are driving innovation adoption across industries and government.</p>
+                </div>
+
+                <!-- 4 -->
+                <div class="feature-card reveal reveal-delay-4" style="display:flex;flex-direction:column;gap:0.75rem;">
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <div class="feature-card-icon" style="flex-shrink:0;"><i class="fas fa-handshake"></i></div>
+                        <h3 style="margin:0;">Strategic Connections</h3>
+                    </div>
+                    <p style="margin:0;">Engage in focused, high-value interactions with government officials, enterprise leaders, and existing or prospective clients in a premium business environment.</p>
+                </div>
+
+                <!-- 5 -->
+                <div class="feature-card reveal reveal-delay-1" style="display:flex;flex-direction:column;gap:0.75rem;">
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <div class="feature-card-icon" style="flex-shrink:0;"><i class="fas fa-envelope-open-text"></i></div>
+                        <h3 style="margin:0;">Invite Your Clients</h3>
+                    </div>
+                    <p style="margin:0;">Invite your current and prospective clients to experience your innovation showcase live and strengthen existing relationships in a world-class setting.</p>
+                </div>
+
+                <!-- 6 -->
+                <div class="feature-card reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:0.75rem;">
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <div class="feature-card-icon" style="flex-shrink:0;"><i class="fas fa-lightbulb"></i></div>
+                        <h3 style="margin:0;">Learning &amp; Inspiration</h3>
+                    </div>
+                    <p style="margin:0;">Witness how innovators are shaping the future, exchange ideas, and draw inspiration from real-world innovation journeys shared on the Bharat AI stage.</p>
+                </div>
+
+                <!-- 7 — full width -->
+                <div class="feature-card reveal reveal-delay-3" style="grid-column:1/-1;display:flex;flex-direction:row;align-items:center;gap:1.5rem;">
+                    <div class="feature-card-icon" style="flex-shrink:0;"><i class="fas fa-people-arrows"></i></div>
+                    <div>
+                        <h3 style="margin:0 0 0.4rem;">Talent &amp; Collaboration</h3>
+                        <p style="margin:0;">Unlock opportunities to collaborate with academia, startups, enterprises, and R&amp;D leaders across sectors — forge partnerships that accelerate your innovation roadmap.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOTH PACKAGES -->
+    <section class="section-pad" style="background:var(--off-white);" id="packages">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow"><i class="fas fa-tags"></i> Booth Packages</span>
+                <h2 class="section-title">Exhibition <span class="accent">Booth Packages</span></h2>
+                <p class="section-subtitle">Choose the package that best fits your goals and budget</p>
+            </div>
+            <div class="packages-grid">
+                <!-- Startup Pod -->
+                <div class="package-card reveal reveal-delay-1">
+                    <div class="package-type">Starter</div>
+                    <div class="package-name">Startup Pod</div>
+                    <div class="package-size">1.5 × 1.2 m (1.8 sqm / 20 sqft)</div>
+                    <div class="package-count">40 pods available</div>
+                    <div class="package-price">₹35,000 <span>+ GST</span></div>
+                    <ul class="package-features">
+                        <li>Compact 1.8 sqm dedicated pod</li>
+                        <li>Fascia name board</li>
+                        <li>1 exhibitor pass</li>
+                        <li>1 table + 1 chair</li>
+                        <li>Power socket (5 amp)</li>
+                        <li>Listing in startup pavilion</li>
+                        <li>Digital exhibitor profile</li>
+                    </ul>
+                    <a href="https://networking.bharataiinnovation.com/inquiry" class="btn btn-outline" style="width:100%;justify-content:center;">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Explorer Booth -->
+                <div class="package-card reveal reveal-delay-2">
+                    <div class="package-type">Explorer</div>
+                    <div class="package-name">Explorer Booth</div>
+                    <div class="package-size">2 × 2 m (4 sqm / 43 sqft)</div>
+                    <div class="package-count">35 booths available</div>
+                    <div class="package-price">₹84,000 <span>+ GST</span></div>
+                    <ul class="package-features">
+                        <li>4 sqm shell scheme booth</li>
+                        <li>Fascia name board</li>
+                        <li>1 exhibitor pass</li>
+                        <li>1 table + 2 chairs</li>
+                        <li>Power socket (5 amp)</li>
+                        <li>Listing in official catalogue</li>
+                        <li>Digital exhibitor profile</li>
+                    </ul>
+                    <a href="https://networking.bharataiinnovation.com/inquiry" class="btn btn-outline" style="width:100%;justify-content:center;">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Innovator Booth -->
+                <div class="package-card reveal reveal-delay-3">
+                    <div class="package-type">Innovator</div>
+                    <div class="package-name">Innovator Booth</div>
+                    <div class="package-size">3 × 2 m (6 sqm / 65 sqft)</div>
+                    <div class="package-count">20 booths available</div>
+                    <div class="package-price">₹92,400 <span>+ GST</span></div>
+                    <ul class="package-features">
+                        <li>6 sqm shell scheme booth</li>
+                        <li>Branded fascia & side panels</li>
+                        <li>2 exhibitor passes</li>
+                        <li>1 table + 2 chairs</li>
+                        <li>Power socket (5 amp)</li>
+                        <li>Listing in official catalogue</li>
+                        <li>Digital exhibitor profile</li>
+                        <li>Product demo area</li>
+                    </ul>
+                    <a href="https://networking.bharataiinnovation.com/inquiry" class="btn btn-outline" style="width:100%;justify-content:center;">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Accelerator Booth -->
+                <div class="package-card featured reveal reveal-delay-1">
+                    <div class="package-badge">Popular</div>
+                    <div class="package-type">Accelerator</div>
+                    <div class="package-name">Accelerator Booth</div>
+                    <div class="package-size">4 × 2 m (8 sqm / 86 sqft)</div>
+                    <div class="package-count">15 booths available</div>
+                    <div class="package-price">₹1,56,000 <span>+ GST</span></div>
+                    <ul class="package-features">
+                        <li>8 sqm shell scheme booth</li>
+                        <li>Premium branding & graphics</li>
+                        <li>3 exhibitor passes</li>
+                        <li>Meeting table + seating</li>
+                        <li>Audio-visual setup</li>
+                        <li>Demo zone for live AI showcase</li>
+                        <li>Featured in event app</li>
+                        <li>Listed in exhibitor directory</li>
+                    </ul>
+                    <a href="https://networking.bharataiinnovation.com/inquiry" class="btn btn-primary" style="width:100%;justify-content:center;">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Enterprise Booth -->
+                <div class="package-card reveal reveal-delay-2">
+                    <div class="package-type">Enterprise</div>
+                    <div class="package-name">Enterprise Booth</div>
+                    <div class="package-size">6 × 2 m (12 sqm / 129 sqft)</div>
+                    <div class="package-count">10 booths available</div>
+                    <div class="package-price">₹2,20,000 <span>+ GST</span></div>
+                    <ul class="package-features">
+                        <li>12 sqm custom-built booth</li>
+                        <li>Premium branding & graphics</li>
+                        <li>5 exhibitor passes</li>
+                        <li>Lounge seating & meeting area</li>
+                        <li>Audio-visual setup</li>
+                        <li>Demo zone for live AI showcase</li>
+                        <li>Featured in event app & website</li>
+                        <li>Speaking slot (15 min)</li>
+                        <li>Media coverage priority</li>
+                    </ul>
+                    <a href="https://networking.bharataiinnovation.com/inquiry" class="btn btn-outline" style="width:100%;justify-content:center;">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Flagship Pavilion -->
+                <div class="package-card reveal reveal-delay-3">
+                    <div class="package-type">Flagship</div>
+                    <div class="package-name">Flagship Pavilion</div>
+                    <div class="package-size">7.5 × 3 m (22.5 sqm / 242 sqft)</div>
+                    <div class="package-count">8 pavilions available</div>
+                    <div class="package-price">₹6,24,000 <span>+ GST</span></div>
+                    <ul class="package-features">
+                        <li>22.5 sqm custom-built pavilion</li>
+                        <li>Full branding, graphics & signage</li>
+                        <li>8 exhibitor passes + VIP access</li>
+                        <li>Private meeting room</li>
+                        <li>Full AV & lighting setup</li>
+                        <li>Live demo stage</li>
+                        <li>Speaking slot (30 min)</li>
+                        <li>Featured on homepage & app</li>
+                        <li>Full media & PR coverage</li>
+                    </ul>
+                    <a href="https://networking.bharataiinnovation.com/inquiry" class="btn btn-outline" style="width:100%;justify-content:center;">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Mega Pavilion -->
+                <div class="package-card reveal reveal-delay-1" style="border-color:var(--indigo);background:linear-gradient(135deg,#FAFAFF,white);">
+                    <div class="package-badge" style="background:linear-gradient(135deg,#4F46E5,#7C3AED);">Premium</div>
+                    <div class="package-type" style="color:var(--indigo);">Mega</div>
+                    <div class="package-name">Mega Pavilion</div>
+                    <div class="package-size">7.5 × 7.5 m (56.25 sqm / 605 sqft)</div>
+                    <div class="package-count" style="background:rgba(79,70,229,0.08);color:var(--indigo);">Only 4 available</div>
+                    <div class="package-price" style="background:linear-gradient(135deg,#4F46E5,#7C3AED);-webkit-background-clip:text;background-clip:text;">₹15,00,000 <span>+ GST</span></div>
+                    <ul class="package-features">
+                        <li>56.25 sqm mega custom pavilion</li>
+                        <li>Title sponsorship of one zone</li>
+                        <li>15 exhibitor passes + VIP lounge</li>
+                        <li>Keynote speaking slot (45 min)</li>
+                        <li>Front-page homepage listing</li>
+                        <li>Brand on all event materials</li>
+                        <li>Press conference facility</li>
+                        <li>CEO networking dinner invite</li>
+                        <li>Full media & PR package</li>
+                    </ul>
+                    <a href="https://networking.bharataiinnovation.com/inquiry" class="btn btn-secondary" style="width:100%;justify-content:center;">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Booth Comparison Table -->
+            <div style="margin-top:3rem;overflow-x:auto;" class="reveal">
+                <h3 style="text-align:center;font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:var(--charcoal);margin-bottom:1.5rem;">Quick Comparison</h3>
+                <table style="width:100%;border-collapse:collapse;background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06);font-size:0.85rem;">
+                    <thead>
+                        <tr style="background:linear-gradient(135deg,#0D0F1A,#1a1d2e);">
+                            <th style="color:white;padding:1rem 0.75rem;text-align:left;font-weight:700;font-size:0.78rem;letter-spacing:0.05em;">Type</th>
+                            <th style="color:white;padding:1rem 0.75rem;text-align:center;font-weight:700;font-size:0.78rem;">Size (m)</th>
+                            <th style="color:white;padding:1rem 0.75rem;text-align:center;font-weight:700;font-size:0.78rem;">Area</th>
+                            <th style="color:white;padding:1rem 0.75rem;text-align:right;font-weight:700;font-size:0.78rem;">Price (₹ + GST)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid #F1F3F9;">
+                            <td style="padding:0.85rem 0.75rem;font-weight:600;color:var(--charcoal);">Startup Pod</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">1.5 × 1.2</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">1.8 sqm / 20 sqft</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:right;font-weight:700;color:var(--charcoal);">₹35,000</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #F1F3F9;background:#FAFBFC;">
+                            <td style="padding:0.85rem 0.75rem;font-weight:600;color:var(--charcoal);">Explorer Booth</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">2 × 2</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">4 sqm / 43 sqft</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:right;font-weight:700;color:var(--charcoal);">₹84,000</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #F1F3F9;">
+                            <td style="padding:0.85rem 0.75rem;font-weight:600;color:var(--charcoal);">Innovator Booth</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">3 × 2</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">6 sqm / 65 sqft</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:right;font-weight:700;color:var(--charcoal);">₹92,400</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #F1F3F9;background:rgba(255,107,0,0.04);">
+                            <td style="padding:0.85rem 0.75rem;font-weight:700;color:var(--saffron);">Accelerator Booth ⭐</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">4 × 2</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">8 sqm / 86 sqft</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:right;font-weight:700;color:var(--charcoal);">₹1,56,000</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #F1F3F9;">
+                            <td style="padding:0.85rem 0.75rem;font-weight:600;color:var(--charcoal);">Enterprise Booth</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">6 × 2</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">12 sqm / 129 sqft</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:right;font-weight:700;color:var(--charcoal);">₹2,20,000</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #F1F3F9;background:#FAFBFC;">
+                            <td style="padding:0.85rem 0.75rem;font-weight:600;color:var(--charcoal);">Flagship Pavilion</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">7.5 × 3</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">22.5 sqm / 242 sqft</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:right;font-weight:700;color:var(--charcoal);">₹6,24,000</td>
+                        </tr>
+                        <tr style="background:linear-gradient(135deg,#FAFAFF,white);">
+                            <td style="padding:0.85rem 0.75rem;font-weight:700;color:var(--indigo);">Mega Pavilion 🏆</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">7.5 × 7.5</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:center;color:var(--dark-grey);">56.25 sqm / 605 sqft</td>
+                            <td style="padding:0.85rem 0.75rem;text-align:right;font-weight:700;color:var(--indigo);">₹15,00,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align:center;color:var(--dark-grey);font-size:0.88rem;margin-top:1.5rem;">
+                <i class="fas fa-info-circle" style="color:var(--saffron);"></i>
+                Custom packages available for startups & academic institutions. <a href="contact.html" style="color:var(--saffron);font-weight:600;">Contact us</a> for early-bird pricing.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="registration-cta">
+        <div class="registration-cta-orb cta-orb-1"></div>
+        <div class="registration-cta-orb cta-orb-2"></div>
+        <div class="container">
+            <div class="cta-content reveal">
+                <span class="section-eyebrow" style="color:var(--gold-light);background:rgba(255,179,0,0.15);border-color:rgba(255,179,0,0.3);margin-bottom:1.5rem;">
+                    <i class="fas fa-store"></i> Book Your Booth
+                </span>
+                <h2>Showcase Your AI Innovation to <span style="background:var(--grad-sunset);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">India's AI Decision-Makers</span></h2>
+                <p>Limited booth spaces — reserve yours before they sell out</p>
+                <div class="cta-buttons">
+                    <a href="https://networking.bharataiinnovation.com/inquiry" class="btn btn-primary btn-xl">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://networking.bharataiinnovation.com/inquiry" class="btn btn-ghost btn-xl">Request Custom Package</a>
+                </div>
+                <div class="early-bird">🎉 Early Bird: 20% off booth bookings before March 31, 2026</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png" alt="Bharat AI Innovation Logo" style="height:40px;width:auto;border-radius:10px;padding:5px;background:rgba(255,255,255,0.95);box-shadow:0 2px 6px rgba(0,0,0,0.08);">
+                    </div>
+                    <p class="footer-description">
+                        Advancing India's Future Through AI Innovation. Join us in creating a Viksit Bharat by 2047.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="conference.html">Conference</a></li>
+                        <li><a href="exhibition.html">Exhibition</a></li>
+                        <li><a href="register.html">Register & Delegation</a></li>
+                        <li><a href="startup-pitch.html">Startup Pitch</a></li>
+                        <li><a href="training-workshop.html">Workshops</a></li>
+                        <li><a href="partner.html">Partner</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Event Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="conference.html#schedule">Schedule</a></li>
+                        <li><a href="conference.html">Programme</a></li>
+                        <li><a href="exhibition.html">Exhibition Zones</a></li>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@bharataiinnovation.com</p>
+                        <p><i class="fas fa-phone"></i> +91 89765 80367</p>
+                        <p><i class="fas fa-map-marker-alt"></i> World Trade Center Mumbai, Cuffe Parade, Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bharat AI Innovation. All rights reserved. | Organized by Aegis Knowledge Trust</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

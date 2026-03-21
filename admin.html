@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — Bharat AI Innovation 2026</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0d0f1a; color: #e0e0e0; min-height: 100vh; }
+
+        /* Sidebar */
+        .sidebar { position: fixed; left: 0; top: 0; width: 240px; height: 100vh; background: #13152a; border-right: 1px solid #2a2d45; padding: 20px 0; z-index: 10; }
+        .sidebar-brand { padding: 0 20px 24px; border-bottom: 1px solid #2a2d45; margin-bottom: 16px; }
+        .sidebar-brand h2 { font-size: 16px; color: #FF7A00; }
+        .sidebar-brand small { color: #888; font-size: 11px; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 20px; cursor: pointer; color: #aaa; transition: all 0.2s; font-size: 14px; }
+        .nav-item:hover { background: #1a1d35; color: #fff; }
+        .nav-item.active { background: linear-gradient(90deg, rgba(255,122,0,0.15), transparent); color: #FF7A00; border-left: 3px solid #FF7A00; }
+        .nav-item i { width: 20px; text-align: center; }
+
+        /* Main */
+        .main { margin-left: 240px; padding: 30px; }
+        .page-header { margin-bottom: 30px; }
+        .page-header h1 { font-size: 24px; font-weight: 600; }
+        .page-header p { color: #888; margin-top: 4px; font-size: 14px; }
+
+        /* Cards */
+        .card { background: #13152a; border: 1px solid #2a2d45; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+        .card h3 { font-size: 16px; margin-bottom: 16px; color: #fff; }
+
+        /* Form */
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; color: #aaa; margin-bottom: 6px; font-weight: 500; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 14px; background: #0d0f1a; border: 1px solid #2a2d45; border-radius: 8px; color: #fff; font-size: 14px; font-family: 'Inter', sans-serif; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #FF7A00; }
+        .form-group .hint { font-size: 11px; color: #666; margin-top: 4px; }
+
+        /* Buttons */
+        .btn { padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+        .btn-primary { background: #FF7A00; color: #fff; }
+        .btn-primary:hover { background: #e56d00; }
+        .btn-primary:disabled { background: #555; cursor: not-allowed; }
+        .btn-success { background: #22c55e; color: #fff; }
+        .btn-success:hover { background: #16a34a; }
+        .btn-danger { background: #ef4444; color: #fff; }
+        .btn-outline { background: transparent; border: 1px solid #2a2d45; color: #aaa; }
+        .btn-outline:hover { border-color: #FF7A00; color: #FF7A00; }
+
+        /* Status */
+        .status-badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+        .status-success { background: rgba(34,197,94,0.15); color: #22c55e; }
+        .status-pending { background: rgba(255,179,0,0.15); color: #FFB300; }
+        .status-error { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+        /* Image Grid */
+        .img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+        .img-card { background: #0d0f1a; border: 1px solid #2a2d45; border-radius: 8px; overflow: hidden; }
+        .img-card img { width: 100%; height: 140px; object-fit: cover; display: block; background: #1a1d35; }
+        .img-card .img-info { padding: 10px; }
+        .img-card .img-id { font-size: 12px; font-family: monospace; color: #FF7A00; }
+        .img-card .img-status { font-size: 11px; margin-top: 4px; }
+        .img-card .img-url { font-size: 10px; color: #666; word-break: break-all; margin-top: 4px; }
+
+        /* Progress */
+        .progress-bar { width: 100%; height: 8px; background: #1a1d35; border-radius: 4px; overflow: hidden; margin: 12px 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #FF7A00, #FFB300); border-radius: 4px; transition: width 0.3s; }
+
+        /* Log */
+        .log-area { background: #0a0c15; border: 1px solid #2a2d45; border-radius: 8px; padding: 12px; max-height: 300px; overflow-y: auto; font-family: monospace; font-size: 12px; line-height: 1.8; }
+        .log-success { color: #22c55e; }
+        .log-error { color: #ef4444; }
+        .log-info { color: #FFB300; }
+
+        /* Tabs hidden */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Alert */
+        .alert { padding: 12px 16px; border-radius: 8px; font-size: 13px; margin-bottom: 16px; }
+        .alert-info { background: rgba(43,140,255,0.1); border: 1px solid rgba(43,140,255,0.3); color: #5ba3ff; }
+        .alert-success { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #22c55e; }
+        .alert-warning { background: rgba(255,179,0,0.1); border: 1px solid rgba(255,179,0,0.3); color: #FFB300; }
+
+        /* Table */
+        table.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        table.data-table th { text-align: left; padding: 10px; color: #888; border-bottom: 1px solid #2a2d45; font-weight: 500; }
+        table.data-table td { padding: 10px; border-bottom: 1px solid #1a1d35; }
+
+        .connection-test { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; margin-left: 12px; }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2>Bharat AI 2026</h2>
+            <small>Admin Dashboard</small>
+        </div>
+        <div class="nav-item active" onclick="showTab('settings')">
+            <i class="fas fa-cog"></i> Settings
+        </div>
+        <div class="nav-item" onclick="showTab('upload')">
+            <i class="fas fa-cloud-upload-alt"></i> Upload Images
+        </div>
+        <div class="nav-item" onclick="showTab('status')">
+            <i class="fas fa-images"></i> Image Status
+        </div>
+        <div class="nav-item" onclick="window.open('index.html','_blank')">
+            <i class="fas fa-external-link-alt"></i> View Website
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <!-- ===== SETTINGS TAB ===== -->
+        <div id="tab-settings" class="tab-content active">
+            <div class="page-header">
+                <h1><i class="fas fa-cog"></i> Blob Storage Settings</h1>
+                <p>Configure your Azure Blob Storage, AWS S3, or other blob storage credentials</p>
+            </div>
+
+            <div class="card">
+                <h3>Storage Provider</h3>
+                <div class="form-group">
+                    <label>Provider Type</label>
+                    <select id="provider">
+                        <option value="azure">Azure Blob Storage</option>
+                        <option value="s3">AWS S3</option>
+                        <option value="gcs">Google Cloud Storage</option>
+                        <option value="cloudflare">Cloudflare R2</option>
+                        <option value="custom">Custom (Any S3-compatible)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card" id="azure-settings">
+                <h3>Azure Blob Storage Credentials</h3>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> 
+                    To get these values: Azure Portal → Storage Account → Access keys (for account key) or Shared Access Signature (for SAS token). 
+                    The container must have <strong>Blob (anonymous read access)</strong> enabled for public URLs.
+                </div>
+                <div class="form-group">
+                    <label>Storage Account Name</label>
+                    <input type="text" id="azure-account" placeholder="e.g. myblobstorage">
+                    <div class="hint">Found in Azure Portal → Storage Accounts → your account name</div>
+                </div>
+                <div class="form-group">
+                    <label>Container Name</label>
+                    <input type="text" id="azure-container" placeholder="e.g. website-images">
+                    <div class="hint">The blob container where images will be uploaded</div>
+                </div>
+                <div class="form-group">
+                    <label>SAS Token</label>
+                    <textarea id="azure-sas" rows="3" placeholder="e.g. ?sv=2022-11-02&ss=b&srt=co&sp=rwdlaciytfx&se=2026-12-31..."></textarea>
+                    <div class="hint">Shared Access Signature token with write permission. Go to: Storage Account → Shared access signature → Generate SAS</div>
+                </div>
+
+                <div style="display:flex; gap:12px; align-items:center; margin-top:20px;">
+                    <button class="btn btn-primary" onclick="saveSettings()">
+                        <i class="fas fa-save"></i> Save Settings
+                    </button>
+                    <button class="btn btn-outline" onclick="testConnection()">
+                        <i class="fas fa-plug"></i> Test Connection
+                    </button>
+                    <span id="connection-result" class="connection-test"></span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Saved Configuration</h3>
+                <div id="saved-config">
+                    <p style="color:#666;">No settings saved yet. Enter your credentials above and click Save.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== UPLOAD TAB ===== -->
+        <div id="tab-upload" class="tab-content">
+            <div class="page-header">
+                <h1><i class="fas fa-cloud-upload-alt"></i> Upload Images</h1>
+                <p>Upload all event images to your blob storage with one click</p>
+            </div>
+
+            <div id="upload-no-config" class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i> 
+                No blob storage configured. Go to <strong>Settings</strong> tab first to enter your credentials.
+            </div>
+
+            <div id="upload-panel" style="display:none;">
+                <div class="card">
+                    <h3>Upload All Images</h3>
+                    <p style="color:#888;font-size:13px;margin-bottom:16px;">
+                        This will upload all 21 event images from the project to your blob storage and update the website to use the public URLs.
+                    </p>
+
+                    <div style="display:flex;gap:12px;margin-bottom:20px;">
+                        <button class="btn btn-primary" id="btn-upload" onclick="uploadAllImages()">
+                            <i class="fas fa-rocket"></i> Upload All 21 Images
+                        </button>
+                        <button class="btn btn-outline" id="btn-update-site" onclick="updateWebsite()" style="display:none;">
+                            <i class="fas fa-sync"></i> Update Website URLs
+                        </button>
+                    </div>
+
+                    <div id="upload-progress" style="display:none;">
+                        <div style="display:flex;justify-content:space-between;font-size:13px;">
+                            <span id="progress-text">Uploading...</span>
+                            <span id="progress-count">0/21</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Upload Log</h3>
+                    <div class="log-area" id="upload-log">
+                        <div style="color:#666;">Ready. Click "Upload All" to start.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== STATUS TAB ===== -->
+        <div id="tab-status" class="tab-content">
+            <div class="page-header">
+                <h1><i class="fas fa-images"></i> Image Status</h1>
+                <p>View all event images and their blob storage URLs</p>
+            </div>
+
+            <div class="card">
+                <h3>All Images (21)</h3>
+                <div id="image-grid" class="img-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // ===== IMAGE DEFINITIONS =====
+    const IMAGES = [
+        { id: 'YFp02g6j', alt: 'World Trade Center Mumbai main facade', file: 'img/YFp02g6j.jpg' },
+        { id: '4RMCtwTB', alt: 'World Trade Center Mumbai skyline at sunset', file: 'img/4RMCtwTB.jpg' },
+        { id: 'oIGfmq8T', alt: 'Opening keynote stage with event branding', file: 'img/oIGfmq8T.jpg' },
+        { id: 'XYFamTjB', alt: 'AI researcher delivering a keynote session', file: 'img/XYFamTjB.jpg' },
+        { id: 'sx04jhlV', alt: 'Industry leader presenting on stage', file: 'img/sx04jhlV.jpg' },
+        { id: '3swgeyOb', alt: 'Expert speaker leading a technical talk', file: 'img/3swgeyOb.jpg' },
+        { id: 'G2kIKD4Y', alt: 'Main stage spotlight with data visuals', file: 'img/G2kIKD4Y.jpg' },
+        { id: 'IseXJc9a', alt: 'Panel discussion on data science in e-commerce and retail', file: 'img/IseXJc9a.jpg' },
+        { id: 'FSwgFC1Q', alt: 'Speaker presenting on stage with data visuals', file: 'img/FSwgFC1Q.jpg' },
+        { id: '7PN2Sjyw', alt: 'Conference registration lobby and networking area', file: 'img/7PN2Sjyw.jpg' },
+        { id: 'ziOcVT9u', alt: 'Conference session with live audience engagement', file: 'img/ziOcVT9u.jpg' },
+        { id: 'M0pjzJb1', alt: 'Data scientist presenting on stage', file: 'img/M0pjzJb1.jpg' },
+        { id: 'WkdpnU9p', alt: 'Speaker presenting at Aegis Data Science conference', file: 'img/WkdpnU9p.jpg' },
+        { id: 'fhk60Z58', alt: 'NVIDIA Managing Director presenting on stage', file: 'img/fhk60Z58.jpg' },
+        { id: 'u8AQyE20', alt: 'Government minister delivering keynote address', file: 'img/u8AQyE20.jpg' },
+        { id: 'GiqsZVsx', alt: 'NVIDIA exhibition booth at Data Science Congress', file: 'img/GiqsZVsx.jpg' },
+        { id: '5rwd54S2', alt: 'Speaker sharing insights from the podium', file: 'img/5rwd54S2.jpg' },
+        { id: 'qaOYFZfB', alt: 'Panel discussion on women in data science', file: 'img/qaOYFZfB.jpg' },
+        { id: 'Mw680XyB', alt: 'Panelist speaking during a leadership discussion', file: 'img/Mw680XyB.jpg' },
+        { id: 'CrqPzMWZ', alt: 'Audience members attending a breakout session', file: 'img/CrqPzMWZ.jpg' },
+        { id: 'lQr1QV9W', alt: 'Speaker presenting technical session with data visuals', file: 'img/lQr1QV9W.jpg' }
+    ];
+
+    // ===== TAB NAVIGATION =====
+    function showTab(tab) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById('tab-' + tab).classList.add('active');
+        event.currentTarget.classList.add('active');
+        if (tab === 'upload') checkUploadReady();
+        if (tab === 'status') loadImageStatus();
+    }
+
+    // ===== SETTINGS =====
+    async function loadSettings() {
+        try {
+            const res = await fetch('tables/settings?limit=100');
+            const data = await res.json();
+            const settings = {};
+            (data.data || []).forEach(r => { settings[r.id] = r.value; });
+
+            if (settings['azure-account']) document.getElementById('azure-account').value = settings['azure-account'];
+            if (settings['azure-container']) document.getElementById('azure-container').value = settings['azure-container'];
+            if (settings['azure-sas']) document.getElementById('azure-sas').value = settings['azure-sas'];
+            if (settings['provider']) document.getElementById('provider').value = settings['provider'];
+
+            updateSavedConfig(settings);
+        } catch(e) {
+            console.log('No saved settings');
+        }
+    }
+
+    function updateSavedConfig(settings) {
+        const el = document.getElementById('saved-config');
+        if (settings['azure-account']) {
+            el.innerHTML = `
+                <table class="data-table">
+                    <tr><th>Provider</th><td>${settings['provider'] || 'azure'}</td></tr>
+                    <tr><th>Account</th><td>${settings['azure-account']}</td></tr>
+                    <tr><th>Container</th><td>${settings['azure-container']}</td></tr>
+                    <tr><th>SAS Token</th><td><span class="status-badge status-success">Configured</span></td></tr>
+                </table>
+            `;
+        }
+    }
+
+    async function saveSetting(key, value) {
+        // Try to delete existing
+        try { await fetch('tables/settings/' + key, { method: 'DELETE' }); } catch(e) {}
+        // Create new
+        await fetch('tables/settings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: key, value: value })
+        });
+    }
+
+    async function saveSettings() {
+        const account = document.getElementById('azure-account').value.trim();
+        const container = document.getElementById('azure-container').value.trim();
+        const sas = document.getElementById('azure-sas').value.trim();
+        const provider = document.getElementById('provider').value;
+
+        if (!account || !container || !sas) {
+            alert('Please fill all fields');
+            return;
+        }
+
+        try {
+            await saveSetting('provider', provider);
+            await saveSetting('azure-account', account);
+            await saveSetting('azure-container', container);
+            await saveSetting('azure-sas', sas);
+            alert('✅ Settings saved successfully!');
+            loadSettings();
+        } catch(e) {
+            alert('❌ Error saving: ' + e.message);
+        }
+    }
+
+    async function testConnection() {
+        const result = document.getElementById('connection-result');
+        result.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing...';
+        result.style.color = '#FFB300';
+
+        const account = document.getElementById('azure-account').value.trim();
+        const container = document.getElementById('azure-container').value.trim();
+        const sas = document.getElementById('azure-sas').value.trim();
+
+        if (!account || !container || !sas) {
+            result.innerHTML = '<i class="fas fa-times-circle"></i> Fill all fields first';
+            result.style.color = '#ef4444';
+            return;
+        }
+
+        try {
+            // Try to list blobs (or just check if the container is accessible)
+            const url = `https://${account}.blob.core.windows.net/${container}?restype=container&comp=list&${sas.replace(/^\?/, '')}`;
+            const res = await fetch(url, { method: 'GET' });
+            if (res.ok || res.status === 200) {
+                result.innerHTML = '<i class="fas fa-check-circle"></i> Connected successfully!';
+                result.style.color = '#22c55e';
+            } else {
+                result.innerHTML = `<i class="fas fa-times-circle"></i> Error: ${res.status} ${res.statusText}`;
+                result.style.color = '#ef4444';
+            }
+        } catch(e) {
+            result.innerHTML = '<i class="fas fa-times-circle"></i> Connection failed: ' + e.message;
+            result.style.color = '#ef4444';
+        }
+    }
+
+    // ===== UPLOAD =====
+    async function getSettings() {
+        const res = await fetch('tables/settings?limit=100');
+        const data = await res.json();
+        const settings = {};
+        (data.data || []).forEach(r => { settings[r.id] = r.value; });
+        return settings;
+    }
+
+    async function checkUploadReady() {
+        const settings = await getSettings();
+        if (settings['azure-account'] && settings['azure-container'] && settings['azure-sas']) {
+            document.getElementById('upload-no-config').style.display = 'none';
+            document.getElementById('upload-panel').style.display = 'block';
+        } else {
+            document.getElementById('upload-no-config').style.display = 'block';
+            document.getElementById('upload-panel').style.display = 'none';
+        }
+    }
+
+    function uploadLog(msg, type) {
+        const log = document.getElementById('upload-log');
+        const line = document.createElement('div');
+        line.className = type ? 'log-' + type : '';
+        line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+        log.appendChild(line);
+        log.scrollTop = log.scrollHeight;
+    }
+
+    async function uploadAllImages() {
+        const settings = await getSettings();
+        const account = settings['azure-account'];
+        const container = settings['azure-container'];
+        const sas = settings['azure-sas'].replace(/^\?/, '');
+        const btn = document.getElementById('btn-upload');
+
+        btn.disabled = true;
+        document.getElementById('upload-progress').style.display = 'block';
+        document.getElementById('upload-log').innerHTML = '';
+
+        let success = 0;
+        let fail = 0;
+
+        uploadLog('Starting upload of 21 images to Azure Blob Storage...', 'info');
+        uploadLog(`Account: ${account}, Container: ${container}`, 'info');
+
+        for (let i = 0; i < IMAGES.length; i++) {
+            const img = IMAGES[i];
+            const num = `[${i+1}/21]`;
+
+            try {
+                uploadLog(`${num} Fetching ${img.file}...`);
+
+                // Fetch image from local project
+                const imgRes = await fetch(img.file);
+                if (!imgRes.ok) throw new Error('Cannot fetch local file: ' + imgRes.status);
+                const blob = await imgRes.blob();
+
+                uploadLog(`${num} Uploading ${img.id}.jpg (${(blob.size/1024).toFixed(0)} KB) to blob storage...`);
+
+                // Upload to Azure Blob Storage
+                const blobUrl = `https://${account}.blob.core.windows.net/${container}/${img.id}.jpg?${sas}`;
+                const uploadRes = await fetch(blobUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'x-ms-blob-type': 'BlockBlob',
+                        'Content-Type': 'image/jpeg'
+                    },
+                    body: blob
+                });
+
+                if (!uploadRes.ok) {
+                    const errText = await uploadRes.text();
+                    throw new Error(`Upload failed (${uploadRes.status}): ${errText.substring(0, 200)}`);
+                }
+
+                // Public URL (without SAS token)
+                const publicUrl = `https://${account}.blob.core.windows.net/${container}/${img.id}.jpg`;
+
+                // Save URL to API
+                try { await fetch('tables/image_urls/' + img.id, { method: 'DELETE' }); } catch(e) {}
+                await fetch('tables/image_urls', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: img.id, url: publicUrl, alt: img.alt, status: 'uploaded' })
+                });
+
+                uploadLog(`${num} ✅ ${img.id} → ${publicUrl}`, 'success');
+                success++;
+            } catch(e) {
+                uploadLog(`${num} ❌ FAILED ${img.id}: ${e.message}`, 'error');
+                fail++;
+            }
+
+            // Update progress
+            const pct = Math.round(((i + 1) / 21) * 100);
+            document.getElementById('progress-fill').style.width = pct + '%';
+            document.getElementById('progress-count').textContent = `${i+1}/21`;
+            document.getElementById('progress-text').textContent = fail > 0 ? `${success} uploaded, ${fail} failed` : `Uploading...`;
+        }
+
+        document.getElementById('progress-text').textContent = `Done! ${success} uploaded, ${fail} failed`;
+        uploadLog(`\n=== COMPLETE: ${success}/21 images uploaded ===`, success === 21 ? 'success' : 'error');
+
+        btn.disabled = false;
+
+        if (success > 0) {
+            document.getElementById('btn-update-site').style.display = 'inline-flex';
+            uploadLog('Click "Update Website URLs" to update index.html with blob URLs.', 'info');
+        }
+    }
+
+    async function updateWebsite() {
+        uploadLog('Updating website image URLs...', 'info');
+        try {
+            const res = await fetch('tables/image_urls?limit=100');
+            const data = await res.json();
+            const urls = {};
+            (data.data || []).forEach(r => { urls[r.id] = r.url; });
+
+            const count = Object.keys(urls).length;
+            uploadLog(`Found ${count} image URLs in storage.`, 'info');
+            uploadLog('✅ Image URLs are saved. The website imageloader.js will use them.', 'success');
+            uploadLog('Please republish the site to apply changes.', 'info');
+        } catch(e) {
+            uploadLog('❌ Error: ' + e.message, 'error');
+        }
+    }
+
+    // ===== IMAGE STATUS =====
+    async function loadImageStatus() {
+        const grid = document.getElementById('image-grid');
+        grid.innerHTML = '';
+
+        let urls = {};
+        try {
+            const res = await fetch('tables/image_urls?limit=100');
+            const data = await res.json();
+            (data.data || []).forEach(r => { urls[r.id] = r; });
+        } catch(e) {}
+
+        IMAGES.forEach(img => {
+            const record = urls[img.id];
+            const hasUrl = record && record.url;
+            const card = document.createElement('div');
+            card.className = 'img-card';
+            card.innerHTML = `
+                <img src="${hasUrl ? record.url : img.file}" alt="${img.alt}" onerror="this.style.background='linear-gradient(135deg,#1a1d35,#2a2d45)';this.style.display='flex';">
+                <div class="img-info">
+                    <div class="img-id">${img.id}</div>
+                    <div class="img-status">
+                        ${hasUrl 
+                            ? '<span class="status-badge status-success">✅ Blob URL</span>' 
+                            : '<span class="status-badge status-pending">⏳ Local only</span>'}
+                    </div>
+                    ${hasUrl ? `<div class="img-url">${record.url}</div>` : ''}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // ===== INIT =====
+    loadSettings();
+    </script>
+</body>
+</html>
