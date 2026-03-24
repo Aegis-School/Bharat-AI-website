@@ -2009,6 +2009,101 @@ section { position: relative; }
   }
 }
 
+/* ===== SPEAKERS CAROUSEL ===== */
+.speakers-carousel-wrapper {
+  position: relative;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+.speakers-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.speakers-carousel .speaker-card {
+  flex-shrink: 0;
+  width: 250px;
+  scroll-snap-align: start;
+  transition: var(--t-med);
+}
+
+.speakers-carousel .speaker-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Carousel Controls */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.carousel-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--grad-saffron);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: var(--t-med);
+  box-shadow: var(--shadow-saffron);
+}
+
+.carousel-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 40px rgba(255,107,0,0.45);
+}
+
+.carousel-btn:active {
+  transform: scale(0.96);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive Carousel */
+@media (max-width: 1024px) {
+  .speakers-carousel .speaker-card {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .speakers-carousel .speaker-card {
+    width: 200px;
+    padding: 1rem;
+  }
+  
+  .speakers-carousel {
+    gap: 1rem;
+  }
+  
+  .carousel-controls {
+    gap: 0.75rem;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}
+
 /* =====================================================
    ABOUT EVENT SECTION
    ===================================================== */

@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCursorGlow();
     initTypewriter();
     initProgressBar();
+    initSpeakersCarousel();
 });
 
 // =====================================================
