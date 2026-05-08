@@ -1,0 +1,32 @@
+# Image compression backups (keep originals locally, never deploy)
+images/originals/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Claude Code session data
+.claude/
+
+# Local tooling
+.tdad/
+*.log
+
+# Unused image (duplicate of expo-layout.jpg)
+images/expo-layout.png
+
+# Python
+__pycache__/
+*.pyc
+
+# Node (if any tooling later)
+node_modules/
+
+# Dependency lock files for one-off scripts
+.python-version

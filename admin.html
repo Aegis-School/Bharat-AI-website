@@ -523,7 +523,7 @@
             const card = document.createElement('div');
             card.className = 'img-card';
             card.innerHTML = `
-                <img src="${hasUrl ? record.url : img.file}" alt="${img.alt}" onerror="this.style.background='linear-gradient(135deg,#1a1d35,#2a2d45)';this.style.display='flex';">
+                <img loading="eager" fetchpriority="high" decoding="async" src="${hasUrl ? record.url : img.file}" alt="${img.alt}" onerror="this.style.background='linear-gradient(135deg,#1a1d35,#2a2d45)';this.style.display='flex';">
                 <div class="img-info">
                     <div class="img-id">${img.id}</div>
                     <div class="img-status">
