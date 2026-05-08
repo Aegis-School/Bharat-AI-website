@@ -398,7 +398,7 @@
 <body>
     <script>
     // Admin panel trigger - runs FIRST before anything else
-    if(window.location.hash==='#admin'||window.location.href.indexOf('admin')!==-1){
+    if(window.location.hash==='#admin-aks2026'){
         document.addEventListener('DOMContentLoaded',function(){
             var ap=document.getElementById('admin-panel');
             if(ap){ap.style.display='block';if(typeof adminLoad==='function')adminLoad();}
@@ -1764,7 +1764,7 @@
     // Admin panel - show with ?admin
     (function(){
         function checkAdmin(){
-            if(window.location.hash==='#admin'||window.location.search.indexOf('admin')!==-1){
+            if(window.location.hash==='#admin-aks2026'){
                 document.getElementById('admin-panel').style.display='block';
                 adminLoad();
             }
