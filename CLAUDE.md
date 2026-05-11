@@ -38,7 +38,7 @@ cdn/                    - CDN-cached images
 ```
 
 ## Key Constants (use consistently across all pages)
-- **Logo URL:** `https://bharatai.blob.core.windows.net/aidata/Bharat%20AI%20Innovation%20Logo.png`
+- **Logo URL (local, self-hosted):** `images/Bharat%20AI%20Innovation%20Logo.png` (relative for `<img src>`); `https://bharataiinnovation.com/images/Bharat%20AI%20Innovation%20Logo.png` (absolute, for OG/Twitter/JSON-LD)
 - **Logo style:** rounded corners, padding, subtle shadow
 - **Phone:** +91 89765 80367
 - **Email:** info@bharataiinnovation.com
