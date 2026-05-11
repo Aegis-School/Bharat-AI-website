@@ -1,6 +1,9 @@
 # Image compression backups (keep originals locally, never deploy)
 images/originals/
 
+# Build output for Cloudflare Pages drag-drop (regenerate via scripts/build-deploy.py)
+deploy/
+
 # OS / editor
 .DS_Store
 Thumbs.db
